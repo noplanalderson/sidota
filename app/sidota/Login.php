@@ -160,11 +160,11 @@ class Login extends SIDOTA_Core {
 
 			if ($this->form_validation->run() == TRUE)
 			{
-				$user =  $this->login_m->verify($post['user_name']);
+				$userData =  $this->login_m->verify($post['user_name']);
 
-				if($user->num_rows() == 1) 
+				if($userData->num_rows() == 1) 
 				{
-					$user = $user->row_array();
+					$user = $userData->row_array();
 
 					if(password_verify($post['user_password'], $user['user_password'])) :
 		
