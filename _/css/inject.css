@@ -1,0 +1,179 @@
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius:5px;
+}
+
+.right {
+    float: right;
+}
+
+.button:hover {
+    border-style:solid;
+    border-width:1px;
+    background-color: #fff;
+    border-color: #4CAF50;
+    color: #4CAF50;
+}
+
+.btn-small {
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius:5px;
+}
+
+.tagsinput {
+    border: 1px solid #CCC;
+    background: #FFF;
+    padding: 6px 6px 0;
+    width: 300px;
+    overflow-y: auto
+}
+
+span.tag {
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    display: block;
+    float: left;
+    padding: 5px 9px;
+    text-decoration: none;
+    background: #1ABB9C;
+    color: #F1F6F7;
+    margin-right: 5px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-family: helvetica
+}
+
+span.tag a {
+    color: #F1F6F7 !important
+}
+
+.tagsinput span.tag a {
+    font-weight: bold;
+    color: #82ad2b;
+    text-decoration: none;
+    font-size: 11px
+}
+
+.tagsinput input {
+    width: 80px;
+    margin: 0px;
+    font-family: helvetica;
+    font-size: 13px;
+    border: 1px solid transparent;
+    padding: 3px;
+    background: transparent;
+    color: #000;
+    outline: 0px
+}
+
+.tagsinput div {
+    display: block;
+    float: left
+}
+
+.tags_clear {
+    clear: both;
+    width: 100%;
+    height: 0px
+}
+
+.it .btn-orange
+{
+    background-color: blue;
+    border-color: #777!important;
+    color: #777;
+    text-align: left;
+    width:100%;
+}
+
+.it input.form-control
+{
+    
+    border:none;
+    margin-bottom:0px;
+    border-radius: 0px;
+    border-bottom: 1px solid #ddd;
+    box-shadow: none;
+}
+
+.it .form-control:focus
+{
+    border-color: #ff4d0d;
+    box-shadow: none;
+    outline: none;
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+}
+
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.logo-db{
+    width: 130px;
+}
+
+.logo-login {
+    position:relative;
+    left:12%;
+    width:220px;
+}
+
+.table {
+    font-size: 12px;
+}
+
+.msg_form {
+    font-size: 12px;
+}
+
+label {
+    font-size: 12px;
+}
+
+.bg-login  {
+    background:url('https://picsum.photos/800/450?random&amp;blur=2');
+    background-size:cover;
+}
+
+.msg_login {
+    left:38%;
+}
+
+.table-schedule tr td {
+    table-layout: fixed;
+    width:100%;
+    border: 1px solid #ddd;
+    border-collapse: separate;
+    padding: 5px;
+    font-size: 12px;
+}
+
+.schedule-area {
+    max-width: 1150px;
+    overflow-x: auto;
+}
