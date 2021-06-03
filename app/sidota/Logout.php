@@ -12,7 +12,7 @@ class Logout extends SIDOTA_Core {
 	public function index()
 	{
 		$this->load->model('login_m');
-		$this->cache->memcached->clean();
+		$this->cache->file->clean();
 		
 		$this->login_m->update_login_data();
 		
