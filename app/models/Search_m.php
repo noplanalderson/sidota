@@ -12,7 +12,7 @@ class Search_m extends CI_Model
 							a.date_activity,
 							a.problem, a.action,
 							a.result_activity,
-							a.status, a.form_activity,
+							a.status,
 							b.category_activity,
 							c.employee_name');
 		$this->db->join('tb_category_activity b', 'a.category_activity_id = b.category_activity_id', 'inner');
