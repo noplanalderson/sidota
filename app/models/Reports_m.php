@@ -56,7 +56,7 @@ class Reports_m extends CI_Model {
 							a.problem, a.action,
 							a.date_activity,
 							a.result_activity,
-							a.status, a.form_activity,
+							a.status,
 							b.category_activity');
 		$this->db->join('tb_category_activity b', 'a.category_activity_id = b.category_activity_id', 'inner');
 		$this->db->where("a.date_activity BETWEEN '". date('Y-m-d', $from) ."' AND '" .date('Y-m-d', $to)."'");
