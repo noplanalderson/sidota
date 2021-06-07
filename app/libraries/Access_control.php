@@ -7,7 +7,7 @@ class Access_control
 
 	public $gid = '';
 
-	public $index_page = 'dashboard';
+	public $index_page = '';
 
 	public $active_page = '';
 
