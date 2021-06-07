@@ -127,6 +127,12 @@ class SIDOTA_Core extends CI_Controller
 	public $user = array();
 
 	/**
+	 * Logged User Menus
+	 * @var array
+	*/
+	public $menus = array();
+
+	/**
 	 * Codeigniter Instance
 	 * 
 	 * @var object
@@ -153,24 +159,15 @@ class SIDOTA_Core extends CI_Controller
 
 		// Load Ticket Model
 		$this->load->model('ticket_m');
-		
-		// Save Loaded App Configuration to Memcached
+
+		// Save Loaded App Configuration to cache
 		$this->app 			= load_cache('sidota_setting', 'app_m', 'getAppSetting', NULL, 300);
-		
-		// Save Loaded App Main Menu to Memcached
-		$this->menus 		= load_cache('sidota_menu', 'app_m', 'getMainMenu', NULL, 300);
 
 		// Get Ticket Notification
 		$this->notif 		= $this->ticket_m->getNotifications();
 
 		// Get Unapprove Ticket
 		$this->unapprove 	= $this->ticket_m->getUnapprove();
-		
-		// Get User's Index Page
-		$this->index_page 	= empty($this->user) ? $this->index_page : $this->user->index_page;
-
-		// Save Loaded Logged User Profile
-		$this->user 		=  load_cache('sidota_user', 'app_m', 'getUserProfile', NULL, 300);
 
 		// Save logged user to session
 		$this->_access 		= array(
@@ -183,6 +180,18 @@ class SIDOTA_Core extends CI_Controller
 		// Load Access Control Library
 		$this->load->library('access_control');
 		$this->access_control->initialize($this->_access);
+
+		if(!empty($this->_access['uid']) && !empty($this->_access['gid'])) {
+
+			// Save Loaded Logged User Profile
+			$this->user 		= load_cache('sidota_user', 'app_m', 'getUserProfile', NULL, 300);
+			
+			// Save Loaded App Main Menu to cache
+			$this->menus 		= load_cache('sidota_menu', 'app_m', 'getMainMenu', NULL, 300);
+			
+			// Get User's Index Page
+			$this->index_page 	= empty($this->user) ? $this->index_page : $this->user->index_page;
+		}
 	}
 
 	protected function _partial($data)
