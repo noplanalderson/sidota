@@ -40,7 +40,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
                     </td>
                     <td>
                       <?= button($btn_edit, FALSE, 'a', 'href="#" class="btn btn-sm btn-warning edit-access" data-toggle="modal" data-target="#accessModal" data-id="'.encrypt($type->type_id).'"');?>
-                      <?= button($btn_delete, FALSE, 'a', 'href="#" data-id="'.encrypt($type->type_id).'" class="btn delete-btn btn-sm btn-danger"');?>
+                      <?= button($btn_delete, FALSE, 'button', 'href="#" data-id="'.encrypt($type->type_id).'" class="btn delete-btn btn-sm btn-danger"');?>
                     </td>
                   </tr>
                   <?php endforeach;?>
