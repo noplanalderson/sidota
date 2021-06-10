@@ -37,7 +37,7 @@ class Dashboard extends SIDOTA_Core {
 	{
 		$this->_module 	= 'dashboard/dashboard';
 		
-		$this->_script 	= 'dashboard_js';
+		$this->js 		= 'page_js/dashboard';
 
 		$this->_data 	= array(
 			'title' 	=> $this->app->app_title_alt . ' - Dashboard',

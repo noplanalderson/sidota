@@ -45,7 +45,7 @@ class Add_report extends SIDOTA_Core {
 
 		$this->_module 	= 'reports/add_report';
 		
-		$this->_script 	= 'add_report_js';
+		$this->js 		= 'page_js/add_report';
 
 		$this->_data 	= array(
 			'title' 	=> $this->app->app_title_alt . ' - Add Report',

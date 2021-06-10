@@ -8,7 +8,6 @@ class Employee extends SIDOTA_Core {
 		parent::__construct();
 
 		$this->access_control->check_login();
-		// $this->access_control->check_role();
 
 		$this->_partial = array(
 			'head',
@@ -24,6 +23,8 @@ class Employee extends SIDOTA_Core {
 
 	public function index()
 	{
+		$this->access_control->check_role();
+
 		$this->css_plugin = array(
 			'fontawesome-free/css/all.min',
 			'ionicons/css/ionicons.min',
@@ -37,7 +38,7 @@ class Employee extends SIDOTA_Core {
 
 		$this->_module 	= 'employee/employee_list';
 
-		$this->_script 	= 'employee_js';
+		$this->js 		= 'page_js/employee';
 
 		$this->_data	= array(
 			'title'		=> $this->app->app_title_alt . ' - Employee List',
@@ -52,6 +53,8 @@ class Employee extends SIDOTA_Core {
 
 	public function add()
 	{
+		$this->access_control->check_role();
+
 		$this->css_plugin = array(
 			'fontawesome-free/css/all.min',
 			'ionicons/css/ionicons.min'
@@ -63,7 +66,7 @@ class Employee extends SIDOTA_Core {
 
 		$this->_module 	= 'employee/add_employee';
 
-		$this->_script	= 'add_employee_js';
+		$this->js		= 'page_js/add_employee';
 
 		$this->_data 	= array(
 			'title'		=> $this->app->app_title_alt . ' - Add Employee',
@@ -161,6 +164,8 @@ class Employee extends SIDOTA_Core {
 
 	public function edit($hash = NULL)
 	{
+		$this->access_control->check_role();
+		
 		if(verify($hash) === FALSE) redirect('page_error');
 
 		$employee = $this->employee_m->getEmployeeByHash($hash);
@@ -177,7 +182,7 @@ class Employee extends SIDOTA_Core {
 
 		$this->_module 	= 'employee/edit_employee';
 
-		$this->_script 	= 'add_employee_js';
+		$this->js 		= 'page_js/add_employee';
 
 		$this->_data	= array(
 			'title'		=> $this->app->app_title_alt . ' - Edit Employee',

@@ -94,7 +94,7 @@ class Edit_report extends SIDOTA_Core {
 
 		$this->_module 	= 'reports/copy_report';
 		
-		$this->_script 	= 'add_report_js';
+		$this->js 		= 'page_js/add_report';
 
 		$report = $this->reports_m->getReportByID($id);
 		if(empty($report)) redirect('page_error'); 

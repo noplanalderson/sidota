@@ -37,7 +37,7 @@ class On_going extends SIDOTA_Core {
 	{
 		$this->_module 	= 'ongoing/on_going';
 		
-		$this->_script 	= 'on_going_js';
+		$this->js 		= 'page_js/ongoing';
 
 		$this->_data 	= array(
 			'title' 	=> $this->app->app_title_alt . ' - On Going',

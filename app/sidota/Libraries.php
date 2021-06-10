@@ -38,7 +38,7 @@ class Libraries extends SIDOTA_Core {
 
 		$this->_module 	= 'libraries/ebooks';
 
-		$this->_script 	= 'ebook_js';
+		$this->js 		= 'page_js/ebook';
 
 		$this->_data	= array(
 			'title'		=> $this->app->app_title_alt . ' - Libraries',
@@ -73,7 +73,7 @@ class Libraries extends SIDOTA_Core {
 		
 		$this->_module 	= 'libraries/add_ebook';
 
-		$this->_script 	= 'add_ebook_js';
+		$this->js  		= 'page_js/add_ebook';
 
 		$this->_data	= array(
 			'title'		=> $this->app->app_title_alt . ' - Add Ebook',

@@ -40,7 +40,7 @@ class Access_management extends SIDOTA_Core {
 
 		$this->_module 	= 'access/access_view';
 
-		$this->_script 	= 'access_js';
+		$this->js 		= 'page_js/access';
 
 		$this->_data	= array(
 			'title'		=> $this->app->app_title_alt . ' - Access Management',

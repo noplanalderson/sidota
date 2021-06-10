@@ -16,15 +16,14 @@ class Login extends SIDOTA_Core {
 
 		$this->load->model('login_m');
 
-		$this->_script = 'login_js';
+		$this->js = 'page_js/login';
 	}
 
 	public function index()
 	{
 		$this->_module 	= 'account/login_view';
 		$this->_data 	= array(
-			'title' 	=> $this->app->app_title_alt . ' - Login',
-			'custom_js'	=> $this->_script()
+			'title' 	=> $this->app->app_title_alt . ' - Login'
 		);
 
 		$this->load_view();
@@ -38,7 +37,6 @@ class Login extends SIDOTA_Core {
 		$this->_module 	= 'account/activation_view';
 		$this->_data 	= array(
 			'title' 	=> $this->app->app_title_alt . ' - Activation',
-			'custom_js'	=> $this->_script(),
 			'user_token'=> $hash
 		);
 
@@ -89,7 +87,7 @@ class Login extends SIDOTA_Core {
 					[
 						'memory_cost' => 2048, 
 						'time_cost' => 4, 
-						'threads' => 3
+						'threads' => 1
 					]
 				);
 

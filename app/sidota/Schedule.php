@@ -72,7 +72,7 @@ class Schedule extends SIDOTA_Core {
 
 		$this->_module 	= 'reports/employee_schedule';
 
-		$this->_script 	= 'schedule_js';
+		$this->js 		= 'page_js/schedule';
 
 		$this->_data	= array(
 			'title'		=> $this->app->app_title_alt . ' - Schedule '.date('F Y', $period),

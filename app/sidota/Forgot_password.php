@@ -14,7 +14,7 @@ class Forgot_password extends SIDOTA_Core {
 			'script'
 		);
 
-		$this->_script = 'forgot_js';
+		$this->js = 'page_js/forgot';
 
 		$this->load->model('forgot_m');
 	}

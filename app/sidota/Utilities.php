@@ -40,7 +40,7 @@ class Utilities extends SIDOTA_Core {
 
 		$this->_module 	= 'utilities/utility_view';
 
-		$this->_script 	= 'utility_js';
+		$this->js 		= 'page_js/utilities';
 
 		$this->_data	= array(
 			'title'				=> $this->app->app_title_alt . ' - Utilities',

@@ -44,7 +44,7 @@ class Reports extends SIDOTA_Core {
 
 		$this->_module 	= 'reports/month';
 
-		$this->_script 	= 'month_js';
+		$this->js 	 	= 'page_js/month';
 
 		$this->_data	= array(
 			'title'		=> 'Reports - ' . $employee->employee_name,
@@ -77,7 +77,7 @@ class Reports extends SIDOTA_Core {
 
 		$this->_module 	= 'reports/monthly_report';
 
-		$this->_script 	= 'monthly_report_js';
+		$this->js 		= 'page_js/monthly_report';
 
 		$this->_data	= array(
 			'title'		=> $employee->employee_name . ' - ' . date('F Y', $month),
@@ -127,7 +127,7 @@ class Reports extends SIDOTA_Core {
 
 		$this->_module 	= 'reports/monthly_report';
 
-		$this->_script 	= 'monthly_report_js';
+		$this->js 		= 'page_js/monthly_report';
 
 		$this->_data	= array(
 			'title'		=> $title,
@@ -196,7 +196,7 @@ class Reports extends SIDOTA_Core {
 
 		$this->_module 	= 'reports/report_detail';
 
-		$this->_script	= 'report_detail_js';
+		$this->js		= 'page_js/report_detail';
 		
 		$report 		= $this->reports_m->getReportDetailByID($id);
 
@@ -253,7 +253,7 @@ class Reports extends SIDOTA_Core {
 
         $this->_module 	= 'reports/daily_report';
 
-        $this->_script	= 'daily_js';
+        $this->js		= 'page_js/daily';
 
 		$this->_data 	= array(
 			'title' 	=> $this->app->app_title_alt . ' - Daily Report',

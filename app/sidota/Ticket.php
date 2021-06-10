@@ -40,7 +40,7 @@ class Ticket extends SIDOTA_Core {
 
 		$this->_module 	= 'ticket/ticket_list';
 		
-		$this->_script 	= 'ticket_js';
+		$this->js 		= 'page_js/ticket';
 
 		$status = (preg_match('/(opened|approved|closed|all)$/', $status) == 1) ? $status : 'all'; 
 
@@ -97,7 +97,7 @@ class Ticket extends SIDOTA_Core {
 
 		$this->_module 	= 'ticket/add_to_report';
 		
-		$this->_script 	= 'add_report_js';
+		$this->js 		= 'page_js/add_report';
 
 		switch ($this->uri->segment(1)) {
 			
@@ -282,7 +282,7 @@ class Ticket extends SIDOTA_Core {
 
 		$this->_module 	= 'ticket/ticket_detail';
 
-		$this->_script	= 'report_detail_js';
+		$this->js		= 'page_js/report_detail';
 		
 		$this->_data 	= array(
 			'title' 	=> $this->app->app_title_alt . ' - Ticket Detail',

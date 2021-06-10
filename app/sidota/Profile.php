@@ -280,7 +280,7 @@ class Profile extends SIDOTA_Core {
 		
 		$this->_module 	= 'profile/change_password';
 
-		$this->_script 	= 'password_js';
+		$this->js 		= 'page_js/password';
 
 		$id 			= encrypt($this->session->userdata('uid'));
 		$employee 		= $this->profile_m->getProfile($id);
@@ -321,7 +321,7 @@ class Profile extends SIDOTA_Core {
 				[
 					'memory_cost' => 2048, 
 					'time_cost' => 4, 
-					'threads' => 3
+					'threads' => 1
 				]
 			);
 			if($this->profile_m->changePassword($pwd)) {

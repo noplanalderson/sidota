@@ -42,7 +42,7 @@ class Documentations extends SIDOTA_Core {
 
 		$this->_module 	= 'documentation/month';
 
-		$this->_script 	= 'month_js';
+		$this->js 		= 'page_js/month';
 
 		$this->_data	= array(
 			'title'		=> 'Documentation - ' . $employee->employee_name,
@@ -72,7 +72,7 @@ class Documentations extends SIDOTA_Core {
 
 		$this->_module 	= 'documentation/monthly_documentation';
 
-		$this->_script 	= 'documentation_js';
+		$this->js 		= 'page_js/documentation';
 
 		$this->_data	= array(
 			'title'		=> $employee->employee_name . ' - ' . date('F Y', $month),
@@ -122,7 +122,7 @@ class Documentations extends SIDOTA_Core {
 
 		$this->_module 	= 'documentation/print_documentation';
 
-		$this->_script 	= 'documentation_js';
+		$this->js 		= 'page_js/documentation';
 
 		$this->_data	= array(
 			'title'		=> $title,
@@ -304,7 +304,7 @@ class Documentations extends SIDOTA_Core {
 
 		$this->_module 	= 'documentation/print_documentation';
 
-		$this->_script 	= 'documentation_js';
+		$this->js 		= 'page_js/documentation';
 
 		$this->_data	= array(
 			'title'		=> $employee->employee_name . ' - ' . date('F Y', $month),
