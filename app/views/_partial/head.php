@@ -10,6 +10,8 @@
     <meta name="author" content="debu_semesta">
     <meta name="X-CSRF-TOKEN" content="<?= $this->security->get_csrf_hash();?>">
 
+    <base href="<?= base_url() ?>">
+    
 	<title><?= $title ?></title>
 
 	<!-- App favicon -->
