@@ -171,7 +171,7 @@ class App_settings extends SIDOTA_Core {
 				$status = 1;
 				$msg 	= 'Settings Updated.';
 
-				$this->cache->memcached->clean();
+				$this->cache->delete('sidota_setting');
 			}
 			else
 			{
