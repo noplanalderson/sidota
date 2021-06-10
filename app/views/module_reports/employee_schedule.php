@@ -43,12 +43,12 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed'); ?>
                 <table class="table-schedule table-bordered">
                   <thead>
                     <tr class="text-center">
-                        <th rowspan="2" class="align-middle">Name</td>
-                        <th colspan="<?= $calendar; ?>"><?= date('F', $period);?></td>
+                        <th rowspan="2" class="align-middle">Name</th>
+                        <th colspan="<?= $calendar; ?>"><?= date('F', $period);?></th>
                     </tr>
                     <tr class="text-center">
                       <?php for ($i = 1; $i <= $calendar; $i++) :?>
-                        <th width="5px"><?= $i;?></td>
+                        <th width="5px"><?= $i;?></th>
                       <?php endfor;?>
                     </tr>
                   </thead>
