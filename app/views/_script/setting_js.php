@@ -1,4 +1,4 @@
-<script>
+<script nonce="QUZVa1UyWjduUXN6OTMxaFhiZkw">
 	$(function(){
     'use strict'
 

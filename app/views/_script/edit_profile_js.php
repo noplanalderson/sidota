@@ -1,4 +1,4 @@
-<script>
+<script nonce="bVZkTTBydlY0T2RBbElMWXlKVjA">
   $(".picture_upload").fileinput({
       theme: "fas",
       uploadUrl: "<?= base_url('upload-pp'); ?>",
