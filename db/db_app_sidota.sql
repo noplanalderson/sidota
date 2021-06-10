@@ -166,7 +166,7 @@ CREATE TABLE `tb_employee` (
   `instagram` varchar(255) DEFAULT NULL,
   `website` varchar(255) DEFAULT NULL,
   `employee_bio` text DEFAULT NULL,
-  `employee_picture` varchar(100) NOT NULL
+  `employee_picture` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -490,7 +490,7 @@ CREATE TABLE `tb_tool` (
 
 CREATE TABLE `tb_user` (
   `user_id` int(2) NOT NULL,
-  `jobdesc_id` int(2) DEFAULT 1,
+  `jobdesc_id` int(2) NOT NULL,
   `employee_id` int(2) NOT NULL,
   `user_name` varchar(100) NOT NULL,
   `user_password` varchar(255) NOT NULL,
@@ -756,7 +756,7 @@ ALTER TABLE `tb_picture`
 --
 ALTER TABLE `tb_roles`
   ADD CONSTRAINT `tb_roles_ibfk_1` FOREIGN KEY (`menu_id`) REFERENCES `tb_menu` (`menu_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tb_roles_ibfk_2` FOREIGN KEY (`type_id`) REFERENCES `tb_user_type` (`type_id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `tb_roles_ibfk_2` FOREIGN KEY (`type_id`) REFERENCES `tb_user_type` (`type_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tb_ticket`
