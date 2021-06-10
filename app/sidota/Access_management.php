@@ -114,6 +114,8 @@ class Access_management extends SIDOTA_Core {
 			{	
 				if($this->access_m->editAccess($post)){
 
+					$this->cache->clean();
+					
 					$status = 1;
 					$msg = 'Access Type Edited.';
 				}
