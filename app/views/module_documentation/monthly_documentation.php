@@ -39,7 +39,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
                       </div>
                       <div class="caption">
                         <?php if($this->session->userdata('uid') == $employee->employee_id):?>
-                          <?= button($btn_delete, FALSE, 'a', 'href="#" data-id="'.encrypt($doc->picture).'" class="btn btn-sm btn-danger mg-t-20 delete-btn rounded"');?>
+                          <?= button($btn_delete, FALSE, 'button', 'data-id="'.encrypt($doc->picture).'" class="btn btn-sm btn-danger mg-t-20 delete-btn rounded"');?>
 
                         <?php endif;?>
                         <a href="<?= base_url('download-documentation/single/'.encrypt($doc->picture));?>" class="btn btn-sm btn-success mg-t-20 rounded" title="Download" download /><i class="fas fa-download"></i></a>
