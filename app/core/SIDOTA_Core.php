@@ -132,6 +132,9 @@ class SIDOTA_Core extends CI_Controller
 	*/
 	public $menus = array();
 
+
+	public $user_hash = '';
+
 	/**
 	 * Codeigniter Instance
 	 * 
@@ -171,11 +174,13 @@ class SIDOTA_Core extends CI_Controller
 
 		if(!empty($this->session->userdata('uid')) && !empty($this->session->userdata('gid'))) {
 
+			$this->user_hash 	= hash('sha384', $this->session->userdata('uid'));
+
 			// Save Loaded Logged User Profile
-			$this->user 		= load_cache('sidota_user_'.hash('sha384', $this->session->userdata('uid')), 'app_m', 'getUserProfile', NULL, 300);
+			$this->user 		= load_cache('sidota_user_'.$this->user_hash, 'app_m', 'getUserProfile', NULL, 300);
 			
 			// Save Loaded App Main Menu to cache
-			$this->menus 		= load_cache('sidota_menu_'.hash('sha384', $this->session->userdata('uid')), 'app_m', 'getMainMenu', NULL, 300);
+			$this->menus 		= load_cache('sidota_menu_'.$this->user_hash, 'app_m', 'getMainMenu', NULL, 300);
 			
 			// Get User's Index Page
 			$this->index_page 	= empty($this->user) ? $this->index_page : $this->user->index_page;
