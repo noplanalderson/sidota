@@ -179,6 +179,7 @@ class Profile extends SIDOTA_Core {
 					if($result === false) {
 						$error = 'Failed to Insert Image';
 					} else {
+						$this->cache->delete('sidota_user_'.$this->user_hash);
 						$image = $id.'/'.$data['file_name'];
 						$error = null;
 					}
@@ -211,14 +212,7 @@ class Profile extends SIDOTA_Core {
 			
 			if(!empty($data)) {
 
-				if($this->profile_m->changeImageByHash($hash) == true) {
-					
-					$error = null;
-				}
-				else
-				{
-					$error = true;
-				}
+				$error = ($this->profile_m->changeImageByHash($hash) == true) ? null : true;
 			}
 			else
 			{
@@ -243,6 +237,8 @@ class Profile extends SIDOTA_Core {
 		if($this->form_validation->run() == TRUE) 
 		{
 			if($this->profile_m->updateProfile($data) === true) {
+
+				$this->cache->delete('sidota_user_'.$this->user_hash);
 
 				$msg 	= 'Profile Updated.';
 				$status = 1;
