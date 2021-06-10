@@ -11,8 +11,8 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
               </div>
               <div class="card card-table-two">
                 <div class="card-header">
-                  <h4><?= $employee->employee_name; ?></h4>
-                  <h6 class="card-title"><?= ucwords($employee->jobdesc_name).' '.$employee->jobdesc_series;?></h6>
+                  <h4 class="employee-name"><?= $employee->employee_name; ?></h4>
+                  <h6 class="card-title employee-jobdesc"><?= ucwords($employee->jobdesc_name).' '.$employee->jobdesc_series;?></h6>
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12 table-responsive mt-3">
                   <table id="reports" class="table table-striped table-bordered">
