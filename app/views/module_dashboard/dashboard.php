@@ -103,6 +103,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
                   <div class="card card-table-two">
                     <div class="card-header">
                       <h6 class="card-title mt-3">PENDING ACTIVITIES ON THIS WEEK</h6>
+                      <p class="ongoing-period"><?= date('d F Y', strtotime($yesterday)).' - '.date('d F Y', strtotime($now));?></p>
                     </div>
                     <div class="pd-20 table-responsive mt-3">
                       <table id="ongoing" class="table table-striped table-bordered">
