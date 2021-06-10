@@ -169,6 +169,18 @@ class SIDOTA_Core extends CI_Controller
 		// Get Unapprove Ticket
 		$this->unapprove 	= $this->ticket_m->getUnapprove();
 
+		if(!empty($this->session->userdata('uid')) && !empty($this->session->userdata('gid'))) {
+
+			// Save Loaded Logged User Profile
+			$this->user 		= load_cache('sidota_user_'.hash('sha384', $this->session->userdata('uid')), 'app_m', 'getUserProfile', NULL, 300);
+			
+			// Save Loaded App Main Menu to cache
+			$this->menus 		= load_cache('sidota_menu_'.hash('sha384', $this->session->userdata('uid')), 'app_m', 'getMainMenu', NULL, 300);
+			
+			// Get User's Index Page
+			$this->index_page 	= empty($this->user) ? $this->index_page : $this->user->index_page;
+		}
+		
 		// Save logged user to session
 		$this->_access 		= array(
 			'uid' => $this->session->userdata('uid'),
@@ -180,18 +192,6 @@ class SIDOTA_Core extends CI_Controller
 		// Load Access Control Library
 		$this->load->library('access_control');
 		$this->access_control->initialize($this->_access);
-
-		if(!empty($this->_access['uid']) && !empty($this->_access['gid'])) {
-
-			// Save Loaded Logged User Profile
-			$this->user 		= load_cache('sidota_user', 'app_m', 'getUserProfile', NULL, 300);
-			
-			// Save Loaded App Main Menu to cache
-			$this->menus 		= load_cache('sidota_menu', 'app_m', 'getMainMenu', NULL, 300);
-			
-			// Get User's Index Page
-			$this->index_page 	= empty($this->user) ? $this->index_page : $this->user->index_page;
-		}
 	}
 
 	protected function _partial($data)
