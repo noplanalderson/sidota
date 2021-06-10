@@ -30,7 +30,7 @@
                         <td><?= $jobdesc->type_code;?></td>
                         <td>
                           <?= button($btn_edit, FALSE, 'a', 'href="#" class="btn btn-small btn-warning edit-jobdesc" data-toggle="modal" data-target="#jobdescModal" data-id="'.encrypt($jobdesc->jobdesc_id).'"');?>
-                          <?= button($btn_delete, FALSE, 'a', 'href="#" data-id="'.encrypt($jobdesc->jobdesc_id).'" id="jobdesc" class="btn delete-btn btn-small btn-danger"');?>
+                          <?= button($btn_delete, FALSE, 'button', 'data-id="'.encrypt($jobdesc->jobdesc_id).'" id="jobdesc" class="btn delete-btn btn-small btn-danger"');?>
                         </td>
                       </tr>
                       <?php endforeach; ?>
@@ -61,7 +61,7 @@
                         <td><?= $category->category_activity;?></td>
                         <td>
                           <?= button($btn_edit, FALSE, 'a', 'href="#" class="btn btn-small btn-warning edit-act-category" data-toggle="modal" data-target="#actCategoryModal" data-id="'.encrypt($category->category_activity_id).'"');?>
-                          <?= button($btn_delete, FALSE, 'a', 'href="#" data-id="'.encrypt($category->category_activity_id).'" id="act-category" class="btn delete-btn btn-small btn-danger"');?>
+                          <?= button($btn_delete, FALSE, 'button', 'data-id="'.encrypt($category->category_activity_id).'" id="act-category" class="btn delete-btn btn-small btn-danger"');?>
                         </td>
                       </tr>
                       <?php endforeach;?>
@@ -94,7 +94,7 @@
                         <td><?= $e_category->category;?></td>
                         <td>
                           <?= button($btn_edit, FALSE, 'a', 'href="#" class="btn btn-small btn-warning edit-ebook-category" data-toggle="modal" data-target="#ebookCategoryModal" data-id="'.encrypt($e_category->id_category).'"');?>
-                          <?= button($btn_delete, FALSE, 'a', 'href="#" data-id="'.encrypt($e_category->id_category).'" id="ebook-category" class="btn delete-btn btn-small btn-danger"');?>
+                          <?= button($btn_delete, FALSE, 'button', 'data-id="'.encrypt($e_category->id_category).'" id="ebook-category" class="btn delete-btn btn-small btn-danger"');?>
                         </td>
                       </tr>
                       <?php endforeach;?>
