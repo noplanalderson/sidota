@@ -114,7 +114,8 @@ class Access_control
 	public function check_role()
 	{
 		$this->active_page = empty($this->active_page) ? $this->index_page : $this->active_page;
-		$role = $this->_CI->app_m->checkRole($this->active_page, $this->gid);
+		//$role = $this->_CI->app_m->checkRole($this->active_page, $this->gid);
+		$role = load_cache('sidota_role_'.hash('sha384', $this->uid), 'app_m', 'checkRole', [$this->active_page, $this->gid], 300);
 		if(!empty($this->uid) && $role == 0) redirect('page_error/403');
 	}
 }
