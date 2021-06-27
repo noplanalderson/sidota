@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Set default cookie configuration to samesite and secure
 |
 */
-ini_set('session.cookie_samesite', 'None');
+ini_set('session.cookie_samesite', 'Lax');
 ini_set('session.cookie_secure', TRUE);
 
 /*
