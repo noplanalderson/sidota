@@ -1,12 +1,14 @@
-<script nonce="bVZkTTBydlY0T2RBbElMWXlKVjA">
+<script nonce="<?= NONCE ?>">
   $(".picture_upload").fileinput({
       theme: "fas",
       uploadUrl: "<?= base_url('upload-pp'); ?>",
       uploadAsync: true,
       showRemove: false,
       showUpload: false,
-      showZoom: true,
-      showDrag: false,
+      fileActionSettings: {
+        showZoom: false,
+        showDrag: false
+      },
       showBrowse: false,
       browseOnZoneClick: true,
       showCancel: true,

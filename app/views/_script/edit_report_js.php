@@ -1,4 +1,4 @@
-<script nonce="eWFoTGI1a3ppYmhnb21IYW1iOWE">
+<script nonce="<?= NONCE ?>">
   $(function(){
     'use strict'
 
@@ -32,8 +32,10 @@
 
       showRemove: false,
       showUpload: false,
-      showZoom: true,
-      showDrag: false,
+      fileActionSettings: {
+        showZoom: false,
+        showDrag: false
+      },
       showBrowse: false,
       browseOnZoneClick: true,
       showCancel: true,

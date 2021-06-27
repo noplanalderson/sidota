@@ -1,4 +1,4 @@
-<script nonce="bzZ3MG4zUXdYUDVkbHNzOVJHTjc">
+<script nonce="<?= NONCE ?>">
 	$(function(){
     'use strict'
 
@@ -15,8 +15,10 @@
 
         showRemove: false,
         showUpload: false,
-        showZoom: true,
-        showDrag: false,
+        fileActionSettings: {
+            showZoom: false,
+            showDrag: false
+        },
         showBrowse: false,
         browseOnZoneClick: true,
         showCancel: true,
@@ -40,7 +42,7 @@
             'xls': '<i class="fas fa-file-excel text-success"></i>',
             'ppt': '<i class="fas fa-file-powerpoint text-danger"></i>',
             'pdf': '<i class="fas fa-file-pdf text-danger"></i>',
-            'txt': '<i class="fas fa-file-alt text-info"></i>',
+            'txt': '<i class="fas fa-file text-info"></i>',
         },
         previewFileExtSettings: {
             'doc': function(ext) {

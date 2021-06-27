@@ -30,8 +30,10 @@
       uploadUrl: "",
       showRemove: false,
       showUpload: false,
-      showZoom: true,
-      showDrag: false,
+      fileActionSettings: {
+        showZoom: false,
+        showDrag: false
+      },
       showBrowse: false,
       browseOnZoneClick: true,
       showCancel: true,
