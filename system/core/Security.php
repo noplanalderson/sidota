@@ -281,9 +281,9 @@ class CI_Security {
 					'expires' => $expire, 
 					'path' => config_item('cookie_path'), 
 					'domain' => config_item('cookie_domain'), 
-					'httponly' => config_item('cookie_httponly'
+					'httponly' => config_item('cookie_httponly')
 				)
-		));
+		);
 		log_message('info', 'CSRF cookie sent');
 
 		return $this;
