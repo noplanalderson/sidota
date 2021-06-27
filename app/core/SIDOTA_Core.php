@@ -13,7 +13,7 @@
  *
  * @package SIDOTA
  * @author Muhammad Ridwan Na'im
- * @version 5.0
+ * @version 5.x
  * @since  2018
  * 
 */
@@ -197,6 +197,9 @@ class SIDOTA_Core extends CI_Controller
 		// Load Access Control Library
 		$this->load->library('access_control');
 		$this->access_control->initialize($this->_access);
+
+		$this->load->library('CSP_Header');
+		$this->csp_header->generateCSP();
 	}
 
 	protected function _partial($data)
