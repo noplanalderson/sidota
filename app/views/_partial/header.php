@@ -1,3 +1,6 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');?>
+
   <body class="az-dashboard">
     <div class="az-header">
       	<div class="container">

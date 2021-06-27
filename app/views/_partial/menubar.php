@@ -1,3 +1,6 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');?>
+
     <div class="az-navbar">
       <div class="container">
         <div class="az-navbar-search pd-15">

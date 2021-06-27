@@ -1,3 +1,6 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,7 +12,7 @@
     <meta name="description" content="Sistem Dokumentasi Data Center">
     <meta name="author" content="debu_semesta">
     <meta name="X-CSRF-TOKEN" content="<?= $this->security->get_csrf_hash();?>">
-
+    
     <base href="<?= base_url() ?>">
     
 	<title><?= $title ?></title>
