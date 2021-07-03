@@ -202,6 +202,18 @@ $route['add-utility/(:any)']		= 'utilities/add/$1';
 $route['edit-utility/(:any)']		= 'utilities/edit/$1';
 $route['delete-utility/(:any)']		= 'utilities/delete/$1';
 
+/*----------------------------
+| Route for Backgrounds Module
+|-----------------------------
+|
+*/
+$route['login-background']			= 'backgrounds/index';
+$route['dashboard-background']		= 'backgrounds/dashboard';
+$route['add-bg-login']				= 'backgrounds/add_bg_login';
+$route['add-bg-dashboard']			= 'backgrounds/add_bg_dashboard';
+$route['delete-bg-login']			= 'backgrounds/delete_bg_login';
+$route['delete-bg-dashboard']		= 'backgrounds/delete_bg_dashboard';
+
 /*----------------------
 | Route for Error Module
 |-----------------------
