@@ -132,7 +132,6 @@ class SIDOTA_Core extends CI_Controller
 	*/
 	public $menus = array();
 
-
 	public $user_hash = '';
 
 	/**
