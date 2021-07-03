@@ -40,6 +40,7 @@
       browseOnZoneClick: true,
       showCancel: true,
       autoReplace: false,
+      append:true,
       uploadAsync: true,
       autoOrientImage: true,
       initialPreviewAsData: true,
