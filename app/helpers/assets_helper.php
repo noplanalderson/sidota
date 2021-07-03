@@ -55,3 +55,35 @@ if (! function_exists('plugin'))
 		}		
 	}
 }
+
+function backgrounds()
+{
+	$images = array();
+	    
+    $directory = array_filter(glob(FCPATH . "_/images/sites/backgrounds/*"), 'is_file');
+
+    foreach($directory as $image)
+    {
+        $images[] = pathinfo($image, PATHINFO_BASENAME);
+    }
+
+    $picked = rand(0,count($images)-1);
+
+    return site_url('_/images/sites/backgrounds/' . $images[$picked]);
+}
+
+function login_backgrounds()
+{
+	$images = array();
+	    
+    $directory = array_filter(glob(FCPATH . "_/images/sites/bg-login/*"), 'is_file');
+
+    foreach($directory as $image)
+    {
+        $images[] = pathinfo($image, PATHINFO_BASENAME);
+    }
+
+    $picked = rand(0,count($images)-1);
+
+    return site_url('_/images/sites/bg-login/' . $images[$picked]);
+}
