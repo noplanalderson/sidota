@@ -38,6 +38,8 @@
       browseOnZoneClick: true,
       showCancel: true,
       autoReplace: false,
+      maxFileCount: 10,
+      append:true,
       autoOrientImage: true
   });
 
