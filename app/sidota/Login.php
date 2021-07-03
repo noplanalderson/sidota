@@ -8,12 +8,6 @@ class Login extends SIDOTA_Core {
 		parent::__construct();
 		$this->access_control->is_login();
 
-		$this->_partial = array(
-			'head',
-			'body',
-			'script'
-		);
-
 		$this->load->model('login_m');
 
 		$this->js = 'page_js/login';
@@ -21,7 +15,12 @@ class Login extends SIDOTA_Core {
 
 	public function index()
 	{
-		$this->_module 	= 'account/login_view';
+		$this->_partial = array(
+			'body',
+			'script'
+		);
+
+		$this->_module 	= 'account/login_new_view';
 		$this->_data 	= array(
 			'title' 	=> $this->app->app_title_alt . ' - Login'
 		);
@@ -31,6 +30,12 @@ class Login extends SIDOTA_Core {
 
 	public function activation($hash = NULL)
 	{
+		$this->_partial = array(
+			'head',
+			'body',
+			'script'
+		);
+
 		$user = $this->login_m->getUserByToken($hash);
 		if(empty($user) || $user === 0) redirect('page_error');
 
@@ -45,171 +50,157 @@ class Login extends SIDOTA_Core {
 
 	public function do_activation()
 	{	
-		if(isset($_POST['submit']))
+		$post = $this->input->post(null, TRUE);
+		
+		$form_rules = [
+	       	array(
+				'field' => 'user_token',
+				'label' => 'Token',
+				'rules' => 'required|regex_match[/^[a-zA-Z0-9\-_+]+$/]',
+				'errors'=> array(
+					'required' => '{field} required.',
+					'regex_match' => 'Allowed charcter for {field} are [a-zA-Z0-9\-_+].'
+				)
+			),
+	       	array(
+				'field' => 'user_password',
+				'label' => 'Password',
+				'rules' => 'required|regex_match[/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.* )(?=.*[^a-zA-Z0-9]).{8,32}$/]',
+				'errors'=> array(
+					'required' => '{field} required.',
+					'regex_match' => '{field} must contain Uppercase, Lowercase, Numeric, and Symbol min. 8 characters.'
+				)
+			),
+			array(
+				'field' => 'repeat_password',
+				'label' => 'Repeat Password',
+				'rules' => 'required|matches[user_password]',
+				'errors'=> array(
+					'required' => '{field} required.',
+					'matches' => '{field} not match.' 
+				)
+			),
+	    ];
+
+		$this->form_validation->set_rules($form_rules);
+
+		if ($this->form_validation->run() == TRUE)
 		{
-			$post = $this->input->post(null, TRUE);
-			
-			$form_rules = [
-		       	array(
-					'field' => 'user_token',
-					'label' => 'Token',
-					'rules' => 'required|regex_match[/^[a-zA-Z0-9\-_+]+$/]',
-					'errors'=> array(
-						'required' => '{field} required.',
-						'regex_match' => 'Allowed charcter for {field} are [a-zA-Z0-9\-_+].'
-					)
-				),
-		       	array(
-					'field' => 'user_password',
-					'label' => 'Password',
-					'rules' => 'required|regex_match[/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.* )(?=.*[^a-zA-Z0-9]).{8,32}$/]',
-					'errors'=> array(
-						'required' => '{field} required.',
-						'regex_match' => '{field} must contain Uppercase, Lowercase, Numeric, and Symbol min. 8 characters.'
-					)
-				),
-				array(
-					'field' => 'repeat_password',
-					'label' => 'Repeat Password',
-					'rules' => 'required|matches[user_password]',
-					'errors'=> array(
-						'required' => '{field} required.',
-						'matches' => '{field} not match.' 
-					)
-				),
-		    ];
+			$pwd = passwordHash($post['user_password'], 
+				[
+					'memory_cost' => 2048, 
+					'time_cost' => 4, 
+					'threads' => 1
+				]
+			);
 
-			$this->form_validation->set_rules($form_rules);
+			$account = array(
+				"user_password" => $pwd,
+				"user_token" => NULL,
+				"is_active" => 1
+			);
 
-			if ($this->form_validation->run() == TRUE)
+			if($this->login_m->getUserByToken($post['user_token']) == 1)
 			{
-				$pwd = passwordHash($post['user_password'], 
-					[
-						'memory_cost' => 2048, 
-						'time_cost' => 4, 
-						'threads' => 1
-					]
-				);
-
-				$account = array(
-					"user_password" => $pwd,
-					"user_token" => NULL,
-					"is_active" => 1
-				);
-
-				if($this->login_m->getUserByToken($post['user_token']) == 1)
+				if($this->login_m->doActivation($account, $post['user_token'])) 
 				{
-					if($this->login_m->doActivation($account, $post['user_token'])) 
-					{
-						$status = 1;
-						$msg = 'Activation Success. Please wait... ';
-					}
-					else
-					{
-						$status = 0;
-						$msg = 'Activation Failed. ';
-					}
+					$status = 1;
+					$msg = 'Activation Success. Please wait... ';
 				}
 				else
 				{
 					$status = 0;
-					$msg = 'User Account not Found.';
+					$msg = 'Activation Failed. ';
 				}
 			}
 			else
 			{
 				$status = 0;
-				$msg = validation_errors();
+				$msg = 'User Account not Found.';
 			}
-
-			$token = $this->security->get_csrf_hash();
-			$result = array('result' => $status, 'msg' => $msg, 'token' => $token);
-			echo json_encode($result);
 		}
 		else
 		{
-			redirect('login');
+			$status = 0;
+			$msg = validation_errors();
 		}
+
+		$token = $this->security->get_csrf_hash();
+		$result = array('result' => $status, 'msg' => $msg, 'token' => $token);
+		echo json_encode($result);
 	}
 
 	public function auth()
 	{	
-		if(isset($_POST['submit']))
-		{
-			$user = [];
+		$user = [];
 
-			$post = $this->input->post(null, TRUE);
-			
-			$form_rules = [
-		        ['field' => 'user_name',
-		         'label' => 'User Name',
-		         'rules' => 'trim|required|regex_match[/^[a-zA-Z0-9@\-_.]+$/]',
-		         'errors'=> array('required' => '{field} required', 
-		                    'regex_match' => '{field} only allowed alfa numeric, dash, @, and underscore')
-		        ],
-		        ['field' => 'user_password',
-		         'label' => 'Password',
-		         'rules' => 'trim|required',
-		         'errors'=> array('required' => '{field} required')
-		        ]
-		    ];
-
-			$this->form_validation->set_rules($form_rules);
-
-			if ($this->form_validation->run() == TRUE)
-			{
-				$userData =  $this->login_m->verify($post['user_name']);
-
-				if($userData->num_rows() == 1) 
-				{
-					$user = $userData->row_array();
-
-					if(password_verify($post['user_password'], $user['user_password'])) :
+		$post = $this->input->post(null, TRUE);
 		
-					$now = new DateTime();
-					$now->setTimezone(new DateTimeZone('Asia/Jakarta'));
+		$form_rules = [
+	        ['field' => 'user_name',
+	         'label' => 'User Name',
+	         'rules' => 'trim|required|regex_match[/^[a-zA-Z0-9@\-_.]+$/]',
+	         'errors'=> array('required' => '{field} required', 
+	                    'regex_match' => '{field} only allowed alfa numeric, dash, @, and underscore')
+	        ],
+	        ['field' => 'user_password',
+	         'label' => 'Password',
+	         'rules' => 'trim|required',
+	         'errors'=> array('required' => '{field} required')
+	        ]
+	    ];
 
-					$index_page = $user['index_page'];
+		$this->form_validation->set_rules($form_rules);
 
-					$sessionLogin = array(  
-						'uid' 	=> $user['user_id'],
-						'gid' 	=> $user['type_id'],
-						'time'	=> strtotime($now->format('Y-m-d H:i:s')),
-					);
+		if ($this->form_validation->run() == TRUE)
+		{
+			$userData =  $this->login_m->verify($post['user_name']);
 
-					$this->session->set_userdata($sessionLogin);
+			if($userData->num_rows() == 1) 
+			{
+				$user = $userData->row_array();
 
-					$status = 1;
-					$msg = 'Login Success. Please wait... ';
+				if(password_verify($post['user_password'], $user['user_password'])) :
+	
+				$now = new DateTime();
+				$now->setTimezone(new DateTimeZone('Asia/Jakarta'));
 
-					else:
+				$index_page = $user['index_page'];
 
-						$status = 0;
-						$msg = 'Login Failed. Wrong Password!';
-					endif;
-				}
-				else
-				{
+				$sessionLogin = array(  
+					'uid' 	=> $user['user_id'],
+					'gid' 	=> $user['type_id'],
+					'time'	=> strtotime($now->format('Y-m-d H:i:s')),
+				);
+
+				$this->session->set_userdata($sessionLogin);
+
+				$status = 1;
+				$msg = 'Login Success. Please wait... ';
+
+				else:
+
 					$status = 0;
-					$msg = 'Login Failed. Username not found or deactivated!';
-				}
+					$msg = 'Login Failed. Wrong Password!';
+				endif;
 			}
 			else
 			{
 				$status = 0;
-				$msg = validation_errors();
+				$msg = 'Login Failed. Username not found or deactivated!';
 			}
-
-			$token = $this->security->get_csrf_hash();
-			$result = array('result' => $status, 'msg' => $msg, 'token' => $token, 'url' => empty($user) ? '' : $user['index_page']);
-			
-			$this->output->set_status_header(200)
-					 ->set_content_type('application/json')
-					 ->set_output(json_encode($result));
 		}
 		else
 		{
-			redirect('login');
+			$status = 0;
+			$msg = validation_errors();
 		}
+
+		$token = $this->security->get_csrf_hash();
+		$result = array('result' => $status, 'msg' => $msg, 'token' => $token, 'url' => empty($user) ? '' : $user['index_page']);
+		
+		$this->output->set_status_header(200)
+				 ->set_content_type('application/json')
+				 ->set_output(json_encode($result));
 	}
 }
