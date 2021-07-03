@@ -204,9 +204,12 @@ $config['scripting']['style_src'] 	= array(
 		"'sha256-OnQJ+WJTy68Tr6CkFyVvUukBBDAKfVxYuXQSzn+4D+Q='",
 		"'sha256-nfxl+6XA8kKEFXnXSN46tecBqvRhFEbt7dxH5WuwBEY='",
 		"'sha256-yOp8BUG9TsCpsz+YVBSALJeJCx2I2PKOFI5Oa7uC5Zc='",
-		"'sha256-NBfyYgxoWTkJ9SyHWLNVIq8UkKGvsaGPAaGmNMpVMSA='"
+		"'sha256-NBfyYgxoWTkJ9SyHWLNVIq8UkKGvsaGPAaGmNMpVMSA='",
+		"'sha256-HIrZf1gS6JrwUNNvuUm748iaFWOgYnA7bsYilARz5pY='",
+		"'sha256-9H+6Jc6wziKy89SEbR8JNqaXUNfinjU+0M9xq3c8k5g='",
+		"'sha256-nancv61BJX4vCiIiDCg1Z3+iuUFdSWgkJnXVKM/ij3Q='"
 	],
-	'nonce' => NULL
+	'nonce' => "'nonce-".NONCE."'"
 );
 
 $config['scripting']['object_src'] 	= array(
@@ -353,9 +356,10 @@ $config['content']['font_src'] 	= array(
 	'source'=> [
 		"https://localhost/sidota/_/fonts/", 
 		"https://localhost/sidota/_/vendors/",
-		"https://fonts.gstatic.com/s/raleway/v19/", 
-		"https://fonts.gstatic.com/s/roboto/v27/",
-		"https://fonts.gstatic.com/s/montserrat/v15/"
+		"https://fonts.gstatic.com/s/raleway/", 
+		"https://fonts.gstatic.com/s/roboto/",
+		"https://fonts.gstatic.com/s/montserrat/",
+		"https://fonts.gstatic.com/s/hind/"
 	],
 );
 
