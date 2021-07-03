@@ -489,7 +489,9 @@ $config['csrf_exclude_uris'] = array(
 	'add-tool', 
 	'upload-pp',
 	'delete-pp',
-	'upload-asset'
+	'upload-asset',
+    'add-bg-login',
+    'add-bg-dashboard'
 );
 
 /*
