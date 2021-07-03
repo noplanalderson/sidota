@@ -3,26 +3,26 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
 
     <div class="az-content az-content-profile">
       <div class="container mn-ht-100p">
-        <div class="az-content-left az-content-left-profile">
+        <div class="az-content-left az-content-left-profile bg-dark pd-20 text-white">
 
-          <div class="az-profile-overview">
+          <div class="az-profile-overview bg-dark">
             <div class="az-img-user">
               <img id="employee_picture" src="<?= site_url('./_/images/users/'.encrypt($this->session->userdata('uid')).'/'.$employee->employee_picture);?>" alt="<?= $employee->employee_name;?>">
             </div><!-- az-img-user -->
             <div class="d-flex justify-content-between mg-b-20">
               <div>
-                <h5 class="az-profile-name"><?= $employee->employee_name;?></h5>
-                <p class="az-profile-name-text"><?= ucwords($employee->jobdesc_name).' '.$employee->jobdesc_series;?></p>
+                <h5 class="az-profile-name text-white"><?= $employee->employee_name;?></h5>
+                <p class="az-profile-name-text text-white"><?= ucwords($employee->jobdesc_name).' '.$employee->jobdesc_series;?></p>
               </div>
             </div>
 
-            <div class="az-profile-bio">
+            <div class="az-profile-bio text-white">
               <?= ucfirst($employee->employee_bio);?>
             </div><!-- az-profile-bio -->
 
             <hr class="mg-y-30">
 
-            <label class="az-content-label tx-13 mg-b-20">Websites &amp; Social Media</label>
+            <label class="az-content-label tx-13 mg-b-20 text-white">Websites &amp; Social Media</label>
             <div class="az-profile-social-list">
               <div class="media">
                 <div class="media-icon"><i class="icon ion-logo-whatsapp"></i></div>
@@ -64,7 +64,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
           </div><!-- az-profile-overview -->
 
         </div><!-- az-content-left -->
-        <div class="az-content-body az-content-body-profile">
+        <div class="az-content-body az-content-body-profile bg-dark pd-20 text-white">
           <nav class="nav az-nav-line">
             <a href="" class="nav-link active" data-toggle="tab">Profile Setting</a>
           </nav>
@@ -82,7 +82,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
                     <div class="">
                       <div class="row row-xs align-items-center mg-b-20">
                         <div class="col-md-4">
-                          <label class="form-label mg-b-0">Employee Name</label>
+                          <label class="text-white form-label mg-b-0">Employee Name</label>
                         </div><!-- col -->
                         <div class="col-md-8 mg-t-5 mg-md-t-0">
                           <input type="text" name="employee_name" class="form-control" value="<?= $employee->employee_name;?>" readonly>
@@ -91,7 +91,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
 
                       <div class="row row-xs align-items-center mg-b-20">
                         <div class="col-md-4">
-                          <label class="form-label mg-b-0">Username *</label>
+                          <label class="text-white form-label mg-b-0">Username *</label>
                         </div><!-- col -->
                         <div class="col-md-8 mg-t-5 mg-md-t-0">
                           <input type="text" name="user_name" class="form-control" placeholder="Username"  value="<?= $employee->user_name;?>" required>
@@ -100,7 +100,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
 
                       <div class="row row-xs align-items-center mg-b-20">
                         <div class="col-md-4">
-                          <label class="form-label mg-b-0">Place of Birth *</label>
+                          <label class="form-label text-white mg-b-0">Place of Birth *</label>
                         </div><!-- col -->
                         <div class="col-md-8 mg-t-5 mg-md-t-0">
                           <input type="text" name="employee_place_ob" class="form-control" placeholder="Place of Birth" value="<?= $employee->employee_place_ob;?>" required>
@@ -109,7 +109,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
 
                       <div class="row row-xs align-items-center mg-b-20">
                         <div class="col-md-4">
-                          <label class="form-label mg-b-0">Tanggal Lahir *</label>
+                          <label class="form-label mg-b-0 text-white">Tanggal Lahir *</label>
                         </div><!-- col -->
                         <div class="col-md-8 mg-t-5 mg-md-t-0">
                           <div class="input-group">
@@ -125,7 +125,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
 
                       <div class="row row-xs align-items-center mg-b-20">
                         <div class="col-md-4">
-                          <label class="form-label mg-b-0">Employee Address *</label>
+                          <label class="form-label mg-b-0 text-white">Employee Address *</label>
                         </div><!-- col -->
                         <div class="col-md-8 mg-t-5 mg-md-t-0">
                           <textarea rows="3" name="employee_address" class="form-control" placeholder="Employee Address" required><?= $employee->employee_address;?></textarea>
@@ -134,7 +134,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
 
                       <div class="row row-xs align-items-center mg-b-20">
                         <div class="col-md-4">
-                          <label class="form-label mg-b-0">Employee Bio</label>
+                          <label class="form-label mg-b-0 text-white">Employee Bio</label>
                         </div><!-- col -->
                         <div class="col-md-8 mg-t-5 mg-md-t-0">
                           <textarea rows="3" name="employee_bio" class="form-control" placeholder="Employee Bio" required><?= $employee->employee_bio;?></textarea>
@@ -143,7 +143,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
 
                       <div class="row row-xs align-items-center mg-b-20">
                         <div class="col-md-4">
-                          <label class="form-label mg-b-0">Phone *</label>
+                          <label class="form-label mg-b-0 text-white">Phone *</label>
                         </div><!-- col -->
                         <div class="col-md-8 mg-t-5 mg-md-t-0">
                           <input type="text" min-length="[9]" max-length="[14]" name="employee_phone" class="form-control" placeholder="Phone" value="<?= $employee->employee_phone;?>" required>
@@ -152,7 +152,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
 
                       <div class="row row-xs align-items-center mg-b-20">
                         <div class="col-md-4">
-                          <label class="form-label mg-b-0">Email *</label>
+                          <label class="form-label mg-b-0 text-white">Email *</label>
                         </div><!-- col -->
                         <div class="col-md-8 mg-t-5 mg-md-t-0">
                           <input type="email" name="user_email" class="form-control" placeholder="you@somewhere.com" value="<?= $employee->user_email;?>" required>
@@ -161,7 +161,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
 
                       <div class="row row-xs align-items-center mg-b-20">
                         <div class="col-md-4">
-                          <label class="form-label mg-b-0">Facebook</label>
+                          <label class="form-label mg-b-0 text-white">Facebook</label>
                         </div><!-- col -->
                         <div class="col-md-8 mg-t-5 mg-md-t-0">
                           <input type="url" name="facebook" class="form-control" placeholder="https://facebook.com/yourprofile" value="<?= $employee->facebook;?>">
@@ -170,7 +170,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
 
                       <div class="row row-xs align-items-center mg-b-20">
                         <div class="col-md-4">
-                          <label class="form-label mg-b-0">Instagram</label>
+                          <label class="form-label mg-b-0 text-white">Instagram</label>
                         </div><!-- col -->
                         <div class="col-md-8 mg-t-5 mg-md-t-0">
                           <input type="url" name="instagram" class="form-control" placeholder="https://instagram.com/youraccount" value="<?= $employee->instagram;?>">
@@ -179,7 +179,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
 
                       <div class="row row-xs align-items-center mg-b-20">
                         <div class="col-md-4">
-                          <label class="form-label mg-b-0">Website</label>
+                          <label class="form-label mg-b-0 text-white">Website</label>
                         </div><!-- col -->
                         <div class="col-md-8 mg-t-5 mg-md-t-0">
                           <input type="url" name="website" class="form-control" placeholder="https://website.com/" value="<?= $employee->website;?>">
@@ -188,7 +188,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
 
                       <div class="row row-xs align-items-center mg-b-20">
                         <div class="col-md-4">
-                          <label class="form-label mg-b-0">Profile Picture</label>
+                          <label class="form-label mg-b-0 text-white">Profile Picture</label>
                         </div><!-- col -->
                         <div class="col-md-8 mg-t-5 mg-md-t-0">
                           <div class="file-loading">

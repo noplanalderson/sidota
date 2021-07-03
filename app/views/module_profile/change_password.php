@@ -3,26 +3,26 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
 
     <div class="az-content az-content-profile">
       <div class="container mn-ht-100p">
-        <div class="az-content-left az-content-left-profile">
+        <div class="az-content-left az-content-left-profile bg-dark pd-20 text-white">
 
-          <div class="az-profile-overview">
+          <div class="az-profile-overview bg-dark">
             <div class="az-img-user">
               <img id="employee_picture" src="<?= site_url('./_/images/users/'.encrypt($this->session->userdata('uid')).'/'.$employee->employee_picture);?>" alt="<?= $employee->employee_name;?>">
             </div><!-- az-img-user -->
             <div class="d-flex justify-content-between mg-b-20">
               <div>
-                <h5 class="az-profile-name"><?= $employee->employee_name;?></h5>
-                <p class="az-profile-name-text"><?= ucwords($employee->jobdesc_name).' '.$employee->jobdesc_series;?></p>
+                <h5 class="az-profile-name text-white"><?= $employee->employee_name;?></h5>
+                <p class="az-profile-name-text text-white"><?= ucwords($employee->jobdesc_name).' '.$employee->jobdesc_series;?></p>
               </div>
             </div>
 
-            <div class="az-profile-bio">
+            <div class="az-profile-bio text-white">
               <?= ucfirst($employee->employee_bio);?>
             </div><!-- az-profile-bio -->
 
             <hr class="mg-y-30">
 
-            <label class="az-content-label tx-13 mg-b-20">Websites &amp; Social Media</label>
+            <label class="az-content-label tx-13 mg-b-20 text-white">Websites &amp; Social Media</label>
             <div class="az-profile-social-list">
               <div class="media">
                 <div class="media-icon"><i class="icon ion-logo-whatsapp"></i></div>
@@ -64,9 +64,9 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
           </div><!-- az-profile-overview -->
 
         </div><!-- az-content-left -->
-        <div class="az-content-body az-content-body-profile">
+        <div class="az-content-body az-content-body-profile bg-dark pd-20 text-white">
           <nav class="nav az-nav-line">
-            <a href="" class="nav-link active" data-toggle="tab">CHANGE PASSWORD</a>
+            <a href="" class="nav-link active text-white" data-toggle="tab">Password Setting</a>
           </nav>
 
           <div class="az-profile-body">
@@ -82,7 +82,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
                     <div class="">
                       <div class="row row-xs align-items-center mg-b-20">
                         <div class="col-md-4">
-                          <label class="form-label mg-b-0">Password *</label>
+                          <label class="form-label mg-b-0 text-white">Password *</label>
                         </div><!-- col -->
                         <div class="col-md-8 mg-t-5 mg-md-t-0">
                           <input id="user_password" type="password" name="user_password" 
@@ -96,7 +96,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
 
                       <div class="row row-xs align-items-center mg-b-20">
                         <div class="col-md-4">
-                          <label class="form-label mg-b-0">Repeat Password *</label>
+                          <label class="form-label mg-b-0 text-white">Repeat Password *</label>
                         </div><!-- col -->
                         <div class="col-md-8 mg-t-5 mg-md-t-0">
                           <input id="user_password2" type="password" name="user_password2" 
@@ -106,7 +106,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
                         </div><!-- col -->
                       </div><!-- row -->
                       <button type="submit" name="submit" class="btn btn-az-primary pd-x-30 mg-r-5">Submit</button>
-                      <button type="reset" class="btn btn-dark pd-x-30">Reset</button>
+                      <button type="reset" class="btn btn-secondary pd-x-30">Reset</button>
                     </div>
                   </form>
                 </div><!-- az-profile-work-list -->
