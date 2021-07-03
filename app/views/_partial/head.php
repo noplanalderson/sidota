@@ -15,17 +15,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
     
     <base href="<?= base_url() ?>">
     
-	<title><?= $title ?></title>
+		<title><?= $title ?></title>
 
-	<!-- App favicon -->
-	<?= show_image('sites/'.$this->app->app_icon, 'icon', 'rel="icon" type="image/png" sizes="16x16"') ?>
+		<!-- App favicon -->
+		<?= show_image('sites/'.$this->app->app_icon, 'icon', 'rel="icon" type="image/png" sizes="16x16"') ?>
 
-	<!-- Core -->
-	<?= css('azia2') ?>
+		<!-- Core -->
+		<?= css('azia2') ?>
 
-	<?= css('inject') ?>
+		<?= css('inject') ?>
+			
+		<?php $this->_CI->load_css() ?>
 		
-	<?php $this->_CI->load_css() ?>
-	
-	<?php $this->_CI->load_css_plugin() ?>
+		<?php $this->_CI->load_css_plugin() ?>
+
+		<style nonce="<?= NONCE ?>">
+			body {
+				background : url('<?= backgrounds() ?>');
+				background-repeat: no-repeat;
+			  background-size: cover;
+			}
+		</style>
 </head>
