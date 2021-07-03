@@ -3,7 +3,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
 
     <div class="az-content">
       <div class="container">
-        <div class="az-content-body">           
+        <div class="az-content-body">
           <div class="card card-table-two">
             <div class="card-header">
               <h6 class="card-title mt-3">EMPLOYEE LISTS</h6>
@@ -15,7 +15,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
                 <div class="thumbnail w-100">
                   <div class="image view view-first w-100">
                     <a href="<?= base_url('profile/'.encrypt($pic->employee_id));?>" target="_blank">
-                      <img class="w-100 d-block rounded-circle" src="<?= encodeImage('./_/images/users/'.encrypt($pic->employee_id).'/thumbnail/'.$pic->employee_picture);?>" alt="<?= $pic->employee_name;?>" />
+                      <img class="w-100 d-block rounded-circle" src="<?= site_url('_/images/users/'.encrypt($pic->employee_id).'/thumbnail/'.$pic->employee_picture);?>" alt="<?= $pic->employee_name;?>" />
                     </a>
                   </div>
                   <div class="caption mg-t-20 text-center">
