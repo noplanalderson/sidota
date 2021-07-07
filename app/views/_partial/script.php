@@ -14,6 +14,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 		
 		<?php $this->_CI->load_js() ?>
 		
+		<script src="https://unpkg.com/sweetalert2@7.24.1/dist/sweetalert2.js"></script>
+
 		<?= $custom_js; ?>
 
 	</body>
