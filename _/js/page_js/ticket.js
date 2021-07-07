@@ -144,53 +144,54 @@
               $('.csrf_token').val(data.token);
               $('meta[name="X-CSRF-TOKEN"]').attr('content', data.token);
               
-              $('.message').html(data.msg);
-              $("#message").slideDown('slow');
-
               if (data.result == 1) {
-                  $('#message').attr('class', 'alert alert-success');
+                  Swal.fire('Success!', data.msg, 'success');
                   setTimeout(location.reload.bind(location), 1000);
               } else {
-                  $('#message').attr('class', 'alert alert-danger');
-                  $("#message").alert().delay(3000).slideUp('slow');
+                  Swal.fire('Failed!', data.msg, 'error');
               }
           }
       });
       return false;
   });
 
-  $("#ticket").on('click', '.delete-btn', function(){
-      var result = confirm("Are You Sure to Delete Ticket?");
+  $("#ticket").on('click', '.delete-btn', function(e){
+    e.preventDefault();
+    
+    Swal.fire({
+      title: 'Delete Report?',
+      text: 'Are you sure to delete this ticket?',
+      showCancelButton: true,
+      type: 'warning',
+      confirmButtonText: 'Yes',
+      reverseButtons: true
+    }).then((result) => {
 
-      if (result) {
-          var $tr = $(this).closest('tr');
-          const ticket_code = $(this).data('id');
-          $.ajax({
-              url: baseURI + '/delete-ticket',
-              data: {
-                      id: ticket_code, 
-                      debu_token: $('.csrf_token').attr('value')
-                  },
-              method: 'post',
-              dataType: 'json',
-              success: function(data) {
-                  $('.modal-body .csrf_token').val(data.token);
-                  $('meta[name="X-CSRF-TOKEN"]').attr('content', data.token);
+      if (result.value == true) {
+        var $tr = $(this).closest('tr');
+        const ticket_code = $(this).data('id');
+        $.ajax({
+          url: baseURI + '/delete-ticket',
+          data: {
+                  id: ticket_code, 
+                  debu_token: $('.csrf_token').attr('value')
+              },
+          method: 'post',
+          dataType: 'json',
+          success: function(data) {
+            $('.modal-body .csrf_token').val(data.token);
+            $('meta[name="X-CSRF-TOKEN"]').attr('content', data.token);
 
-                  $('.delete_msg').html(data.msg);
-                  $("#delete_msg").slideDown('slow');
-                  
-                  if (data.result == 1) {
-                      $('#delete_msg').attr('class', 'alert alert-success');
-                      $tr.find('td').fadeOut(1000,function(){ 
-                          $tr.remove();                    
-                      });
-                  } else {
-                      $('#delete_msg').attr('class', 'alert alert-danger');
-                  }
-                  
-                  $("#delete_msg").alert().delay(6000).slideUp('slow');
-              }
-          });
+            if (data.result == 1) {
+                Swal.fire('Success!', data.msg, 'success');
+                $tr.find('td').fadeOut(1000,function(){ 
+                    $tr.remove();                    
+                });
+            } else {
+                Swal.fire('Failed!', data.msg, 'error');
+            }
+          }
+        });
       }
+    })
   });

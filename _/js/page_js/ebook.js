@@ -21,10 +21,18 @@
     });
   });
 
-  $("#ebook").on('click', '.delete-btn', function(){
-      var result = confirm("Are You Sure to Delete Ebook?");
+  $("#ebook").on('click', '.delete-btn', function(e){
+      e.preventDefault();
 
-      if (result) {
+      Swal.fire({
+        text: 'Are You sure to delete this image?',
+        showCancelButton: true,
+        type: 'question',
+        confirmButtonText: 'Yes',
+        reverseButtons: true
+      }).then((result) => {
+
+      if (result.value == true) {
           var $tr = $(this).closest('tr');
           const ebook_hash = $(this).data('id');
 
@@ -42,19 +50,16 @@
                 $('meta[name="X-CSRF-TOKEN"]').attr('content', data.token);
 
                 if (data.result == 1) {
-                  $('#delete_msg').attr('class', 'alert alert-success');
+                  Swal.fire('Success!', data.msg, 'success');
                   $tr.find('td').fadeOut(1000,function(){ 
                     $tr.remove();                    
                   });
                 } 
                 else {
-                  $('#delete_msg').attr('class', 'alert alert-danger');
+                  Swal.fire('Failed!', data.msg, 'error');
                 }
-
-                $('.delete_msg').html(data.msg);
-                $("#delete_msg").slideDown('slow');
-                $("#delete_msg").alert().delay(6000).slideUp('slow');
               }
           });
       }
+    })
   });

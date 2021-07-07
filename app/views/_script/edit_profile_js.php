@@ -27,7 +27,7 @@
 
   }).on('fileuploaded', function(event, data) {
     $('#employee_picture').attr('src', "<?= site_url('/_/images/users/');?>" + data.response.image);
-    $('body,html').animate({scrollTop: 156}, 1000);
+    Swal.fire('Image Uploaded!', '', 'success');
   });
 
   $(document).ready(function(e){
@@ -60,7 +60,7 @@
                       var instagram = $('input[name="instagram"]').val();
                       var website   = $('input[name="website"]').val();
 
-                      $('#message').attr('class', 'alert alert-success');
+                      Swal.fire('Success!', data.msg, 'success');
                       $('.az-profile-bio').html(new_bio);
                       $('#employee_phone').attr('href', 'tel:'+new_phone).html(new_phone);
                       $('#user_email').attr('href', 'mailto:'+new_email).html(new_email);
@@ -69,11 +69,8 @@
                       $('#website').attr('href', website).html(website);
 
                   } else {
-                      $('#message').attr('class', 'alert alert-danger');
+                      Swal.fire('Failed!', data.msg, 'error');
                   }
-
-                  $("#message").alert().delay(6000).slideUp('slow');
-                  $('body,html').animate({scrollTop: 156}, 800);
               }
           });
           return false;

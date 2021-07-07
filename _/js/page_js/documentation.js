@@ -3,7 +3,7 @@
 	$(function(){
         $('.show').on('click', function() {
             $('.modal-title').html('Image Preview');
-            $('#image').attr('src', baseURI + "/_/images/new-loader.gif").attr('class', 'w-50');
+            $('#image').attr('src', baseURI + "_/images/new-loader.gif").attr('class', 'w-50');
 
             const picture = $(this).data('id');
             $.ajax({
@@ -18,38 +18,43 @@
         });
     });
 
-    $(".delete-btn").on('click', function(){
-        var result = confirm("Are You sure to delete this image?");
+    $(".delete-btn").on('click', function(e){
+        e.preventDefault();
 
-        if (result) {
-            const hash = $(this).data('id');
-            $.ajax({
-                url: baseURI + '/delete-documentation',
-                data: { 
-                    hash: hash,
-                    debu_token: $('meta[name="X-CSRF-TOKEN"]').attr('content')
-                },
-                method: 'post',
-                dataType: 'json',
-                success: function(data) {
-                    $('.csrf_token').val(data.token);
-                    $('meta[name="X-CSRF-TOKEN"]').attr('content', data.token);
+        Swal.fire({
+          text: 'Are You sure to delete this image?',
+          showCancelButton: true,
+          type: 'question',
+          confirmButtonText: 'Yes',
+          reverseButtons: true
+        }).then((result) => {
 
-                    if (data.result == 1) {
-                      $('#delete_msg').attr('class', 'alert alert-success');
-                        $('.' + hash).fadeOut(1000,function(){ 
-                            $('.' + hash).remove();                    
-                        });
-                    } else {
-                        $('#delete_msg').attr('class', 'alert alert-danger');
+            if (result.value == true) {
+                const hash = $(this).data('id');
+                $.ajax({
+                    url: baseURI + '/delete-documentation',
+                    data: { 
+                        hash: hash,
+                        debu_token: $('meta[name="X-CSRF-TOKEN"]').attr('content')
+                    },
+                    method: 'post',
+                    dataType: 'json',
+                    success: function(data) {
+                        $('.csrf_token').val(data.token);
+                        $('meta[name="X-CSRF-TOKEN"]').attr('content', data.token);
+
+                        if (data.result == 1) {
+                            Swal.fire('Success!', data.msg, 'success');
+                            $('.' + hash).fadeOut(1000,function(){ 
+                                $('.' + hash).remove();                    
+                            });
+                        } else {
+                            Swal.fire('Failed!', data.msg, 'error');
+                        }
                     }
-
-                    $('.delete_msg').html(data.msg);
-                    $("#delete_msg").slideDown('slow');
-                    $("#delete_msg").alert().delay(3000).slideUp('slow');
-                }
-            });
-        }
+                });
+            }
+        })
     });
 
     $("#btn-print").on('click', function() {

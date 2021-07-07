@@ -19,7 +19,7 @@
       range.selectNode(document.getElementById('area'));
       window.getSelection().addRange(range);
       document.execCommand("copy");
-      alert("Report Copied.")
+      Swal.fire('Success!', 'Report Copied!', 'success');
     }
   });
 

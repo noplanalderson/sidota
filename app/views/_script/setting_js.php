@@ -37,6 +37,7 @@
       initialPreviewConfig: [<?= json_encode($json_icon); ?>]
 
   }).on('fileuploaded', function(event, data) {
+    Swal.fire('Image Uploaded!', '', 'success');
     setTimeout(function(){
         location.reload();
     },3000);
@@ -70,6 +71,7 @@
       initialPreviewConfig: [<?= json_encode($json_logo); ?>]
 
   }).on('fileuploaded', function(event, data) {
+    Swal.fire('Image Uploaded!', '', 'success');
     setTimeout(function(){
         location.reload();
     },3000);
@@ -103,6 +105,7 @@
       initialPreviewConfig: [<?= json_encode($json_logo_login); ?>]
 
   }).on('fileuploaded', function(event, data) {
+    Swal.fire('Image Uploaded!', '', 'success');
     setTimeout(function(){
         location.reload();
     },3000);
@@ -125,18 +128,14 @@
               dataType: 'json',
               success: function(data) {
                   
-                  $('input[name="<?= $this->security->get_csrf_token_name();?>"]').val(data.token);
-                  $('.message').html(data.msg);
-                  $("#message").slideDown('slow');
+                  $('.csrf_token').val(data.token);
+                  $('meta[name="X-CSRF-TOKEN"]').attr('content', data.token);
 
                   if (data.result == 1) {
-                      $('#message').attr('class', 'alert alert-success');
+                      Swal.fire('Success!', data.msg, 'success');
                   } else {
-                      $('#message').attr('class', 'alert alert-danger');
+                      Swal.fire('Failed!', data.msg, 'error');
                   }
-
-                  $("#message").alert().delay(6000).slideUp('slow');
-                  $('body,html').animate({scrollTop: 156}, 800);
               }
           });
           return false;

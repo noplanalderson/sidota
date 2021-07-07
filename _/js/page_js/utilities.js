@@ -128,15 +128,11 @@
                 $('.csrf_token').val(data.token);
                 $('meta[name="X-CSRF-TOKEN"]').attr('content', data.token);
 
-                $('.jobdesc_msg').html(data.msg);
-                $("#jobdesc_msg").slideDown('fast');
-
                 if (data.result == 1) {
-                    $('#jobdesc_msg').attr('class', 'alert alert-success');
+                    Swal.fire('Success!', data.msg, 'success');
                     setTimeout(location.reload.bind(location), 1000);
                 } else {
-                    $('#jobdesc_msg').attr('class', 'alert alert-danger');
-                    $("#jobdesc_msg").alert().delay(6000).slideUp('slow');
+                    Swal.fire('Failed!', data.msg, 'error');
                 }
             }
         });
@@ -163,15 +159,11 @@
                 $('.csrf_token').val(data.token);
                 $('meta[name="X-CSRF-TOKEN"]').attr('content', data.token);
 
-                $('.catAct_msg').html(data.msg);
-                $("#catAct_msg").slideDown('fast');
-
                 if (data.result == 1) {
-                    $('#catAct_msg').attr('class', 'alert alert-success');
+                    Swal.fire('Success!', data.msg, 'success');
                     setTimeout(location.reload.bind(location), 1000);
                 } else {
-                    $('#catAct_msg').attr('class', 'alert alert-danger');
-                    $("#catAct_msg").alert().delay(6000).slideUp('slow');
+                    Swal.fire('Failed!', data.msg, 'error');
                 }
             }
         });
@@ -198,15 +190,11 @@
                 $('.csrf_token').val(data.token);
                 $('meta[name="X-CSRF-TOKEN"]').attr('content', data.token);
 
-                $('.ebookCat_msg').html(data.msg);
-                $("#ebookCat_msg").slideDown('fast');
-
                 if (data.result == 1) {
-                    $('#ebookCat_msg').attr('class', 'alert alert-success');
+                    Swal.fire('Success!', data.msg, 'success');
                     setTimeout(location.reload.bind(location), 1000);
                 } else {
-                    $('#ebookCat_msg').attr('class', 'alert alert-danger');
-                    $("#ebookCat_msg").alert().delay(6000).slideUp('slow');
+                    Swal.fire('Failed!', data.msg, 'error');
                 }
             }
         });
@@ -214,40 +202,45 @@
     });
   });
 
-  $(".utilities").on('click', '.delete-btn', function(){
-      var result = confirm("Are You Sure to Delete this Item?");
+  $(".utilities").on('click', '.delete-btn', function(e){
+      e.preventDefault();
 
-      if (result) {
-          var $tr = $(this).closest('tr');
-          const id = $(this).data('id');
-          var item = $(this).attr('id');
+      Swal.fire({
+        text: 'Are You sure to delete this utility?',
+        showCancelButton: true,
+        type: 'warning',
+        confirmButtonText: 'Yes',
+        reverseButtons: true
+      }).then((result) => {
 
-          $.ajax({
-              url: baseURI + 'delete-utility/' + item,
-              data: {
-                      id: id, 
-                      debu_token: $('meta[name="X-CSRF-TOKEN"]').attr('content')
-                  },
-              method: 'post',
-              dataType: 'json',
-              success: function(data) {
-                  $('.csrf_token').val(data.token);
-                  $('meta[name="X-CSRF-TOKEN"]').attr('content', data.token);
-                  
-                  $("#delete_msg").slideDown('fast');
-                  
-                  if (data.result == 1) {
-                      $('#delete_msg').attr('class', 'alert alert-success');
-                      $tr.find('td').fadeOut(1000,function(){ 
-                          $tr.remove();                    
-                      });
-                  } else {
-                      $('#delete_msg').attr('class', 'alert alert-danger');
-                  }
+      if (result.value == true) {
 
-                  $('.delete_msg').html(data.msg);
-                  $("#delete_msg").alert().delay(6000).slideUp('slow');
-              }
-          });
+        var $tr = $(this).closest('tr');
+        const id = $(this).data('id');
+        var item = $(this).attr('id');
+
+        $.ajax({
+            url: baseURI + 'delete-utility/' + item,
+            data: {
+                    id: id, 
+                    debu_token: $('meta[name="X-CSRF-TOKEN"]').attr('content')
+                },
+            method: 'post',
+            dataType: 'json',
+            success: function(data) {
+                $('.csrf_token').val(data.token);
+                $('meta[name="X-CSRF-TOKEN"]').attr('content', data.token);
+                
+                if (data.result == 1) {
+                    Swal.fire('Success!', data.msg, 'success');
+                    $tr.find('td').fadeOut(1000,function(){ 
+                        $tr.remove();                    
+                    });
+                } else {
+                    Swal.fire('Failed!', data.msg, 'error');
+                }
+            }
+        });
       }
+    })
   });

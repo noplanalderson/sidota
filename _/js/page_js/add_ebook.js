@@ -79,19 +79,14 @@
               dataType: 'json',
               success: function(data) {
                   
-                  $('.csrf_token').val(data.token);
-                  $('meta[name="X-CSRF-TOKEN"]').attr('content', data.token);
-                  $('.message').html(data.msg);
-                  $("#message").slideDown('slow');
+                $('.csrf_token').val(data.token);
+                $('meta[name="X-CSRF-TOKEN"]').attr('content', data.token);
 
-                  if (data.result == 1) {
-                      $('#message').attr('class', 'alert alert-success');
-                  } else {
-                      $('#message').attr('class', 'alert alert-danger');
-                  }
-
-                  $("#message").alert().delay(6000).slideUp('slow');
-                  $('body,html').animate({scrollTop: 156}, 800);
+                if (data.result == 1) {
+                    Swal.fire('Success!', data.msg, 'success');
+                } else {
+                    Swal.fire('Failed!', data.msg, 'error');
+                }
               }
           });
           return false;

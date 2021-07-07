@@ -66,43 +66,50 @@
   });
 
 
-  $("#ongoing").on('change', '.status', function(){
-    var result = confirm("Are You sure to update this report?");
+  $("#ongoing").on('change', '.status', function(e){
 
-    if (result) {
-      var $tr = $(this).closest('tr');
-      const activity_id = $(this).data('id');
+    e.preventDefault();
 
-      $.ajax({
-        url: baseURI + '/update-progress',
-        data: { 
-          id: activity_id,
-          status: $('select[data-id="'+activity_id+'"]').val(),
-          debu_token: $('meta[name="X-CSRF-TOKEN"]').attr('content')
-        },
-        method: 'post',
-        dataType: 'json',
-        success: function(data) {
+    Swal.fire({
+      text: 'Are You sure to update this report?',
+      showCancelButton: true,
+      type: 'question',
+      confirmButtonText: 'Yes',
+      reverseButtons: true
+    }).then((result) => {
 
-          $('.csrf_token').val(data.token);
-          $('meta[name="X-CSRF-TOKEN"]').attr('content', data.token);
+      if (result.value == true) {
 
-          if (data.result == 1) {
-            $('#message').attr('class', 'alert alert-success');
-            if(data.progress === 'finished') {
-              $tr.find('td').fadeOut(1000,function(){ 
-                $tr.remove();                    
-              });
+        var $tr = $(this).closest('tr');
+        const activity_id = $(this).data('id');
+
+        $.ajax({
+          url: baseURI + '/update-progress',
+          data: { 
+            id: activity_id,
+            status: $('select[data-id="'+activity_id+'"]').val(),
+            debu_token: $('meta[name="X-CSRF-TOKEN"]').attr('content')
+          },
+          method: 'post',
+          dataType: 'json',
+          success: function(data) {
+
+            $('.csrf_token').val(data.token);
+            $('meta[name="X-CSRF-TOKEN"]').attr('content', data.token);
+
+            if (data.result == 1) {
+              swal("Success!", data.msg, "success");
+              if(data.progress === 'finished') {
+                $tr.find('td').fadeOut(1000,function(){ 
+                  $tr.remove();                    
+                });
+              }
+            } 
+            else {
+              swal("Failed!", data.msg, "error");
             }
-          } 
-          else {
-            $('#message').attr('class', 'alert alert-danger');
           }
-
-          $('.message').html(data.msg);
-          $("#message").slideDown('slow');
-          $("#message").alert().delay(6000).slideUp('slow');
-        }
-      });
-    }
+        });
+      }
+    })
   });

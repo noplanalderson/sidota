@@ -43,7 +43,7 @@
           messageTop: employeeJobdesc + "\n",
           title: "Work Report " + title,
             exportOptions: {
-              columns: [0,1,2,3,4,5,6,7]
+              columns: ':visible'
             }
         },
         {
@@ -72,44 +72,56 @@
           exportOptions: {
             columns: [0,1,2,3,4,5,6,7]
           }
+        },
+        {
+          extend: 'colvis',
+          text: 'Hide Column'
         }
       ]
   });
 
-  $("#reports").on('click', '.delete-btn', function(){
-    var result = confirm("Are You sure to delete this report?");
+  $("#reports").on('click', '.delete-btn', function(e){
 
-      if (result) {
-          var $tr = $(this).closest('tr');
-          const activity_id = $(this).data('id');
+    e.preventDefault();
+    
+    Swal.fire({
+      title: 'Delete Report?',
+      text: 'Are you sure to delete this report?',
+      showCancelButton: true,
+      type: 'warning',
+      confirmButtonText: 'Yes',
+      reverseButtons: true
+    }).then((result) => {
 
-          $.ajax({
-              url: baseURI + '/delete-report',
-              data: { 
-                id: activity_id,
-                debu_token: $('meta[name="X-CSRF-TOKEN"]').attr('content')
-              },
-              method: 'post',
-              dataType: 'json',
-              success: function(data) {
+      if (result.value == true) {
 
-                $('.csrf_token').val(data.token);
-                $('meta[name="X-CSRF-TOKEN"]').attr('content', data.token);
+        var $tr = $(this).closest('tr');
+        const activity_id = $(this).data('id');
 
-                if (data.result == 1) {
-                  $('#delete_msg').attr('class', 'alert alert-success');
-                  $tr.find('td').fadeOut(1000,function(){ 
-                    $tr.remove();                    
-                  });
-                } 
-                else {
-                  $('#delete_msg').attr('class', 'alert alert-danger');
-                }
+        $.ajax({
+            url: baseURI + '/delete-report',
+            data: { 
+              id: activity_id,
+              debu_token: $('meta[name="X-CSRF-TOKEN"]').attr('content')
+            },
+            method: 'post',
+            dataType: 'json',
+            success: function(data) {
 
-                $('.delete_msg').html(data.msg);
-                $("#delete_msg").slideDown('slow');
-                $("#delete_msg").alert().delay(6000).slideUp('slow');
+              $('.csrf_token').val(data.token);
+              $('meta[name="X-CSRF-TOKEN"]').attr('content', data.token);
+
+              if (data.result == 1) {
+                Swal.fire('Success!', data.msg, 'success');
+                $tr.find('td').fadeOut(1000,function(){ 
+                  $tr.remove();                    
+                });
+              } 
+              else {
+                Swal.fire('Failed!', data.msg, 'error');
               }
-          });
+            }
+        });
       }
+    })
   });
