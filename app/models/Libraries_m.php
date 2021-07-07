@@ -36,8 +36,10 @@ class Libraries_m extends CI_Model {
 
 	public function delete($hash)
 	{
-		$this->db->where('md5(ebook_title)', verify($hash));
-		return $this->db->delete('tb_ebook') ? true : false;
+		$this->db->where('md5(ebook_id)', verify($hash));
+		$this->db->delete('tb_ebook');
+
+		return ($this->db->affected_rows() === 1) ? true : false;
 	}
 
 	public function addEbook($data, $file)

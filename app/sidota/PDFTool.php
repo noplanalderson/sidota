@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+use Ilovepdf\Ilovepdf;
 use Ilovepdf\CompressTask;
 
 class PDFTool extends SIDOTA_Core {
@@ -39,7 +40,7 @@ class PDFTool extends SIDOTA_Core {
 
 		$this->_module 	= 'pdftool/merge_pdf';
 
-		$this->_script 	= 'merge_js';
+		$this->js 		= 'page_js/merge';
 
 		$this->_data	= array(
 			'title'		=> $this->app->app_title_alt . ' - Merge PDF'
@@ -105,7 +106,7 @@ class PDFTool extends SIDOTA_Core {
 				}
 				$result = shell_exec($cmd);
 
-				$ilovepdf = new CompressTask('project_public_e388e972476ba3c61606d450bd89b7ec_8BU5Qe7cb29eda03bccd7b8d57c4815e29195','secret_key_a5a0ee68e2bc1ec2c9ebd5dd164a81c6_fah8K4b69a10577c105165072546d67e2e01c');
+				$ilovepdf = new Ilovepdf('project_public_c274990fc319aa38069ea0b2ba69d187_KZabi10cb1e70ca2f48d18b9597b8a7651925','secret_key_9e439fa7ea41110df52a627861af2fc0_Deoa148c6964acc33e3ebf3ee9f94f345c741');
 				$task = $ilovepdf->newTask('compress');
 				$task->setCompressionLevel('recommended');
 				$file = $task->addFile($outputName);

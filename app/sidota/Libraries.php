@@ -355,7 +355,7 @@ class Libraries extends SIDOTA_Core {
 				}
 				else {
 					$code = 200;
-					$status = 1;
+					$status = 0;
 					$msg = 'Failed to Delete Ebook.';
 				}
 			}
