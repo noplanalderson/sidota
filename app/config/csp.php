@@ -184,14 +184,14 @@ $config['default']['default_src'] = array(
 |
 */
 $config['scripting']['script_src'] 	= array(
-	'source'=> ["https://localhost/sidota/_/"],
+	'source'=> ["https://localhost/sidota/_/", "https://unpkg.com/sweetalert2@7.24.1/"],
 	'mode' 	=> ["'unsafe-eval'","'unsafe-inline'","'unsafe-hashes'","'report-sample'"],
 	'hash' 	=> [],
 	'nonce' => "'nonce-".NONCE."'"
 );
 
 $config['scripting']['style_src'] 	= array(
-	'source'=> ["https://localhost/sidota/_/", "https://fonts.googleapis.com/css"],
+	'source'=> ["https://localhost/sidota/_/", "https://fonts.googleapis.com/css", "https://unpkg.com/sweetalert2@7.24.1/"],
 	'mode' 	=> ["'unsafe-inline'","'unsafe-hashes'","'report-sample'"],
 	'hash' 	=> [
 		"'sha256-OTeu7NEHDo6qutIWo0F2TmYrDhsKWCzrUgGoxxHGJ8o='",
