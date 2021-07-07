@@ -93,7 +93,8 @@ class Employee_m extends CI_Model {
 	public function deleteEmployeeByHash($hash)
 	{
 		$this->db->where('md5(employee_id)', verify($hash));
-		return $this->db->delete('tb_employee') ? true : false;
+		$this->db->delete('tb_employee');
+		return ($this->db->affected_rows() === 1) ? true : false;
 	}
 }
 
