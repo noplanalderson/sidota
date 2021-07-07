@@ -4,9 +4,6 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
     <div class="az-content az-content-dashboard">
       <div class="container">
         <div class="az-content-body">
-          <div id="delete_msg" class="alert d-none">
-              <small class="delete_msg"></small>
-          </div>
           <div class="card card-table-two">
             <div class="card-header">
                 <h6 class="card-title mt-3">ACCESS LISTS</h6>
@@ -39,8 +36,8 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
                       </select>
                     </td>
                     <td>
-                      <?= button($btn_edit, FALSE, 'a', 'href="#" class="btn btn-sm btn-warning edit-access" data-toggle="modal" data-target="#accessModal" data-id="'.encrypt($type->type_id).'"');?>
-                      <?= button($btn_delete, FALSE, 'button', 'href="#" data-id="'.encrypt($type->type_id).'" class="btn delete-btn btn-sm btn-danger"');?>
+                      <?= button($btn_edit, FALSE, 'a', 'href="#" class="btn btn-small btn-warning edit-access" data-toggle="modal" data-target="#accessModal" data-id="'.encrypt($type->type_id).'"');?>
+                      <?= button($btn_delete, FALSE, 'button', 'href="#" data-id="'.encrypt($type->type_id).'" class="btn delete-btn btn-small btn-danger"');?>
                     </td>
                   </tr>
                   <?php endforeach;?>

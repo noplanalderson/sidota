@@ -6,9 +6,6 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
         <div class="az-content-body">
           <div class="row mg-b-20">
             <div class="col-md-12 col-sm-12 col-xs-12 mg-t-20 mg-lg-t-0">
-              <div id="delete_msg" class="alert d-none">
-                  <small class="delete_msg"></small>
-              </div>
               <div class="card card-table-two">
                 <div class="card-header">
                   <h4 class="employee-name"><?= $employee->employee_name; ?></h4>

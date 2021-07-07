@@ -4,9 +4,6 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
     <div class="az-content">
       <div class="container">
         <div class="az-content-body">
-          <div id="delete_msg" class="alert d-none">
-              <small class="delete_msg"></small>
-          </div>
           <div class="card card-table-two">
             <div class="card-header">
               <h6 class="card-title mt-3">LIBRARIES</h6>

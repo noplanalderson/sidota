@@ -4,9 +4,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
     <div class="az-content az-content-dashboard">
       <div class="container">
         <div class="az-content-body schedule-area">
-          <div id="delete_msg" class="alert d-none">
-            <small class="delete_msg"></small>
-          </div>
+
           <div class="card card-table-two">
             <div class="card-header">
               <div class="row">

@@ -3,9 +3,6 @@
         <div class="az-content-body">
           <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12 mg-t-20 mg-lg-t-0">
-              <div id="message" class="alert d-none">
-                  <small class="message"></small>
-              </div>
               <div class="card card-table-two">
                 <div class="card-header">
                   <h6 class="card-title mt-3">ADD REPORT</h6>

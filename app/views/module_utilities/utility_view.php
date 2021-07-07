@@ -3,9 +3,7 @@
     <div class="az-content az-content-dashboard">
       <div class="container">
         <div class="az-content-body">
-          <div id="delete_msg" class="alert d-none">
-            <small class="delete_msg"></small>
-          </div>
+
           <div class="row row-sm mg-b-20">
             <div class="col-lg-6 mg-t-20 mg-lg-t-0">
               <div class="card card-table-two">
@@ -119,9 +117,6 @@
               </button>
           </div>
           <div class="modal-body">
-            <div id="jobdesc_msg" class="alert d-none">
-              <small class="jobdesc_msg"></small>
-            </div>
 
             <?= form_open('edit-utility/jobdesc', 'id="jobdescForm" method="post"');?>
 
@@ -166,9 +161,6 @@
               </button>
           </div>
           <div class="modal-body">
-            <div id="catAct_msg" class="alert d-none">
-              <small class="catAct_msg"></small>
-            </div>
 
             <?= form_open('edit-utility/act-category', 'id="actCatForm" method="post"');?>
 
@@ -200,9 +192,6 @@
               </button>
           </div>
           <div class="modal-body">
-            <div id="ebookCat_msg" class="alert d-none">
-              <small class="ebookCat_msg"></small>
-            </div>
 
             <?= form_open('edit-utility/ebook-category', 'id="ebookCatForm" method="post"');?>
 

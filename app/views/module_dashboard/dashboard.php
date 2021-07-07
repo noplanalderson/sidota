@@ -97,9 +97,6 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
                   </div><!-- card -->
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12 mg-t-20">
-                  <div id="message" class="alert d-none">
-                      <small class="message"></small>
-                  </div>
                   <div class="card card-table-two">
                     <div class="card-header">
                       <h6 class="card-title mt-3">PENDING ACTIVITIES ON THIS WEEK</h6>

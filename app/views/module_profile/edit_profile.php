@@ -73,9 +73,6 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
 
             <div class="row mg-b-20">
               <div class="col-md-12 col-xl-12">
-                <div id="message" class="alert d-none">
-                  <small class="message"></small>
-                </div>
                 <div class="az-profile-work-list">
                   <?= form_open('change-profile', 'id="accountForm" method="post"');?>
 
