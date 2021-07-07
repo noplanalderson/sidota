@@ -32,5 +32,5 @@ function multiple_selected($cat, $catList)
 {
   $explodeCat = explode(", ", $catList);
   
-  return in_array($cat, $explodeCat) ?: "selected";
+  return in_array($cat, $explodeCat) ? "selected" : null;
 }
