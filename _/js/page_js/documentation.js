@@ -3,7 +3,7 @@
 	$(function(){
         $('.show').on('click', function() {
             $('.modal-title').html('Image Preview');
-            $('#image').attr('src', baseURI + "_/images/new-loader.gif").attr('class', 'w-50');
+            $('#image').attr('src', baseURI + "_/images/curve-loading.gif").attr('class', 'w-50');
 
             const picture = $(this).data('id');
             $.ajax({
