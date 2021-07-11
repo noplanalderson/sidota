@@ -69,7 +69,7 @@ class Search extends SIDOTA_Core {
 
 		$this->_module 	= 'search/search_result';
 
-		$this->_script 	= 'search_js';
+		$this->js 		= 'page_js/search_result';
 
 		$query 			= urldecode($query);
 		$reports 		= $this->search_m->result($query);
