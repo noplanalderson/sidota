@@ -328,48 +328,7 @@ h3 a {
 }
 /*-- //copyright --*/
 /*-- //main --*/
-
-/*-- responsive-design --*/ 
-
-@media(max-width:667px){
-	
-	h1 {
-		font-size: 40px;
-		letter-spacing: 3px;
-	}
-}
-
-@media(max-width:415px){
-	
-	h1 {
-		font-size: 35px;
-		letter-spacing: 3px;
-	}
-	.social {
-		margin: 1em 0 0;
-	}
-	.copyright {
-		padding: 2em 1em;
-	}
-}
-@media(max-width:384px){
-	.main-icon span.fa {
-		margin-bottom: .6em;
-	}
-	.header-main {
-		max-width: 310px;
-		margin: 0 1em;
-	}
-	.header-left-bottom input[type="text"],.header-left-bottom input[type="password"] {
-		width: 88%;
-	}
-	.social ul li {
-		margin: 0 2px;
-	}
-	h1 {
-		font-size: 30px;
-	}
-} 
+ 
 
 #msg_form {
     margin: 0;
