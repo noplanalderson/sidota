@@ -1,15 +1,15 @@
 <?php
 defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
 
-    <div class="az-content">
+    <div class="az-content az-content-dashboard">
       <div class="container">
-        <div class="az-content-body">
-          <div class="card card-table-two">
+        <div class="az-content-body overflow-auto">
+          <div class="card card-table-two rounded mb-5">
             <div class="card-header">
               <h6 class="card-title mt-3">LIBRARIES</h6>
             </div>
-            <div class="row pd-30 table-responsive">
-              <div class="col-md-12 col-sm-12 col-xs-12 mt-3">
+            <div class="card-body">
+              <div class="table-responsive">
                 <table id="ebook" class="table table-striped table-bordered">
                   <thead>
                     <tr class="text-center">

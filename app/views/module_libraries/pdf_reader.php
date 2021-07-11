@@ -1,7 +1,7 @@
-    <div class="az-content">
+    <div class="az-content az-content-dashboard">
       <div class="container">
         <div class="az-content-body">
-          <div class="card card-table-two">
+          <div class="card card-table-two rounded mb-5">
             <div class="card-header">
               <h6 class="card-title m-3"><?= $title;?></h6>
             </div>

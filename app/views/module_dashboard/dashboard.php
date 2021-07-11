@@ -3,7 +3,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
 
     <div class="az-content az-content-dashboard">
       <div class="container">
-        <div class="az-content-body">
+        <div class="az-content-body overflow-auto">
           <div class="az-dashboard-one-title">
             <div>
               <h2 class="az-dashboard-title"><?= $this->user->employee_name; ?></h2>
@@ -12,7 +12,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
             <div class="az-content-header-right">
               <div class="media">
                 <div class="media-body">
-                  <label>Last Login</label>
+                  <label class="text-dark">Last Login</label>
                   <h6>
                     <?= date('d F Y H:i:s', $this->user->last_login);?>
                     
@@ -21,7 +21,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
               </div><!-- media -->
               <div class="media">
                 <div class="media-body">
-                  <label>From</label>
+                  <label class="text-dark">From</label>
                   <h6><?= $this->user->ip;?></h6>
                 </div><!-- media-body -->
               </div><!-- media -->
@@ -30,7 +30,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
 
           <div class="row row-sm mg-b-20">
             <div class="col-lg-4 col-md-4 col-sm-12 ht-lg-100p">
-              <div class="card card-table-two">
+              <div class="card card-table-two rounded">
                 <div class="card-header">
                   <h6 class="card-title mt-3">COMPLETED ACTIVITY BY CATEGORIES</h6>
                 </div><!-- card-header -->
@@ -61,10 +61,10 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
                 </div><!-- card-body -->
               </div><!-- card-dashboard-four -->
             </div><!-- col -->
-            <div class="col-lg-8 col-md-8 col-sm-12 mg-t-20 mg-lg-t-0">
+            <div class="col-lg-8 col-md-8 col-sm-12 mg-t-20 mg-lg-t-0 mg-md-t-0">
               <div class="row row-sm">
                 <div class="col-sm-12">
-                  <div class="card card-table-two">
+                  <div class="card card-table-two rounded">
                     <div class="card-header">
                       <h6 class="card-title mt-3">TICKET LOGS</h6>
                     </div><!-- card-header -->
@@ -97,13 +97,13 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
                   </div><!-- card -->
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12 mg-t-20">
-                  <div class="card card-table-two">
+                  <div class="card card-table-two rounded">
                     <div class="card-header">
                       <h6 class="card-title mt-3">PENDING ACTIVITIES ON THIS WEEK</h6>
-                      <p class="ongoing-period"><?= date('d F Y', strtotime($yesterday)).' - '.date('d F Y', strtotime($now));?></p>
+                      <p class="ongoing-period text-white"><?= date('d F Y', strtotime($yesterday)).' - '.date('d F Y', strtotime($now));?></p>
                     </div>
                     <div class="pd-20 table-responsive mt-3">
-                      <table id="ongoing" class="table table-striped table-bordered">
+                      <table id="ongoing" class="table table-bordered">
                         <thead>
                           <tr>
                             <th>Date</th>

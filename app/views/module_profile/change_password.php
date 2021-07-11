@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
 
-    <div class="az-content az-content-profile">
+    <div class="az-content az-content-profile mt-3 mb-5">
       <div class="container mn-ht-100p">
-        <div class="az-content-left az-content-left-profile bg-dark pd-20 text-white">
+        <div class="az-content-left az-content-left-profile bg-dark pd-20 text-white rounded">
 
           <div class="az-profile-overview bg-dark">
             <div class="az-img-user">
@@ -64,7 +64,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
           </div><!-- az-profile-overview -->
 
         </div><!-- az-content-left -->
-        <div class="az-content-body az-content-body-profile bg-dark pd-20 text-white">
+        <div class="az-content-body az-content-body-profile bg-dark pd-20 text-white rounded">
           <nav class="nav az-nav-line">
             <a href="" class="nav-link active text-white" data-toggle="tab">Password Setting</a>
           </nav>
@@ -83,7 +83,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
                         </div><!-- col -->
                         <div class="col-md-8 mg-t-5 mg-md-t-0">
                           <input id="user_password" type="password" name="user_password" 
-                                  class="form-control" 
+                                  class="form-control bg-dark text-white" 
                                   placeholder="*********"
                                   pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[.!@$%?/~_]).{8,20}$" 
                                   title="Password must contain uppercase, lowercase, numeric, and symbol 8-20 characters" required="required" autocomplete="off">
@@ -97,7 +97,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
                         </div><!-- col -->
                         <div class="col-md-8 mg-t-5 mg-md-t-0">
                           <input id="user_password2" type="password" name="user_password2" 
-                                  class="form-control" 
+                                  class="form-control bg-dark text-white" 
                                   placeholder="*********" 
                                   required="required" autocomplete="off">
                         </div><!-- col -->

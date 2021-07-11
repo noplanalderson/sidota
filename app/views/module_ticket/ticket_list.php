@@ -3,9 +3,9 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
 
     <div class="az-content az-content-dashboard">
       <div class="container">
-        <div class="az-content-body schedule-area">
+        <div class="az-content-body overflow-auto">
 
-          <div class="card card-table-two">
+          <div class="card card-table-two rounded">
             <div class="card-header">
               <div class="row">
                 <div class="col-md-8 col-sm-12">
@@ -15,7 +15,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
                   <?= button($btn_add, TRUE, 'button', 'href="#" class="btn-sm add-ticket btn-primary float-right" data-toggle="modal" data-target="#ticketModal"');?>
                 </div>
                 <div class="col-md-2 col-sm-12 mt-2">
-                  <select name="status" class="ticket-status form-control">
+                  <select name="status" class="ticket-status form-control bg-dark text-white bg-dark text-white">
                     <option value="">Ticket Status</option>
                     <option value="all">All</option>
                     <option value="opened">Opened</option>
@@ -97,7 +97,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
 
      <div class="modal fade" id="ticketModal" tabindex="-1" role="dialog" aria-labelledby="Ticket Management" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
+          <div class="modal-content bg-dark text-white">
             <div class="modal-header">
                 <h5 class="modal-title" id="accessAction"></h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -114,23 +114,23 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
               <input type="hidden" id="ticket_code" name="ticket_code" value="">
 
               <div class="form-group row">
-                <label class="col-sm-12 col-md-2 col-form-label">Reporter</label>
+                <label class="col-sm-12 col-md-2 col-form-label text-white">Reporter</label>
                 <div class="col-sm-12 col-md-10">
-                  <input type="text" id="reporter" name="reporter" class="form-control" placeholder="Reporter Name" required="required">
+                  <input type="text" id="reporter" name="reporter" class="form-control bg-dark text-white" placeholder="Reporter Name" required="required">
                 </div>
               </div>
 
               <div class="form-group row">
-                <label class="col-sm-12 col-md-2 col-form-label">Date Report</label>
+                <label class="col-sm-12 col-md-2 col-form-label text-white">Date Report</label>
                 <div class="col-sm-12 col-md-10">
-                  <input type="date" id="date_report" name="date_report" class="form-control" required="required">
+                  <input type="date" id="date_report" name="date_report" class="form-control bg-dark text-white" required="required">
                 </div>
               </div>
 
               <div class="form-group row">
-                <label class="col-sm-12 col-md-2 col-form-label">Category</label>
+                <label class="col-sm-12 col-md-2 col-form-label text-white">Category</label>
                 <div class="col-sm-12 col-md-10">
-                  <select id="category_activity_id" name="category_activity_id" class="form-control select2-search" required="required">
+                  <select id="category_activity_id" name="category_activity_id" class="form-control bg-dark text-white select2-search" required="required">
                   <?php foreach ($categories as $category) :?>
                     
                     <option value="<?= $category->category_activity_id ?>"><?= $category->category_activity ?></option>
@@ -141,16 +141,16 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
               </div>
 
               <div class="form-group row">
-                <label class="col-sm-12 col-md-2 col-form-label">Problem Report</label>
+                <label class="col-sm-12 col-md-2 col-form-label text-white">Problem Report</label>
                 <div class="col-sm-12 col-md-10">
-                  <textarea name="problem_report" id="problem_report" class="form-control"></textarea>
+                  <textarea name="problem_report" id="problem_report" class="form-control bg-dark text-white"></textarea>
                 </div>
               </div>
 
               <div class="form-group row">
-                <label class="col-sm-12 col-md-2 col-form-label">Location</label>
+                <label class="col-sm-12 col-md-2 col-form-label text-white">Location</label>
                 <div class="col-sm-12 col-md-10">
-                  <input type="text" id="location" name="location" class="form-control" placeholder="Location" required="required">
+                  <input type="text" id="location" name="location" class="form-control bg-dark text-white" placeholder="Location" required="required">
                 </div>
               </div>
             </div>

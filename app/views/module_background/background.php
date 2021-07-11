@@ -7,7 +7,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
           <div id="delete_msg" class="alert d-none">
               <small class="delete_msg"></small>
           </div>
-          <div class="card card-table-two">
+          <div class="card card-table-two rounded mb-5">
             <div class="card-header">
                 <h6 class="card-title mt-3">BACKGROUND</h6>
                 <?= button($btn_add, TRUE, 'button', 'href="#" class="btn-sm add-background btn-primary float-right" data-toggle="modal" data-target="#backgroundModal" id="'.$add_url.'"');?>
@@ -43,7 +43,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
 
       <div class="modal fade" id="backgroundModal" tabindex="-1" role="dialog" aria-labelledby="Background" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
+          <div class="modal-content bg-dark text-white">
             <div class="modal-header">
                 <h5 class="modal-title" id="accessAction"></h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">

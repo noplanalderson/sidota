@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No Direct Script Access Allowed');?>
     <div class="az-content az-content-dashboard">
       <div class="container">
         <div class="az-content-body">
-          <div class="card card-table-two">
+          <div class="card card-table-two rounded mb-5">
             <div class="card-header">
               <h6 class="card-title mt-3">ADD EBOOK</h6>
             </div>
@@ -14,20 +14,20 @@ defined('BASEPATH') OR exit('No Direct Script Access Allowed');?>
                 <div class="">
                   <div class="row row-xs align-items-center mg-b-20">
                     <div class="col-md-3">
-                      <label class="form-label mg-b-0">Author *</label>
+                      <label class="form-label text-white mg-b-0">Author *</label>
                     </div><!-- col -->
                     <div class="col-md-9 mg-t-5 mg-md-t-0">
-                      <input type="text" name="author" class="form-control" value="<?= $this->user->employee_name;?>" disabled>
+                      <input type="text" name="author" class="form-control bg-dark text-white" value="<?= $this->user->employee_name;?>" disabled>
                     </div><!-- col -->
                   </div><!-- row -->
 
                   <div class="row row-xs align-items-center mg-b-20">
                     <div class="col-md-3">
-                      <label class="form-label mg-b-0">Categories *</label>
+                      <label class="form-label text-white mg-b-0">Categories *</label>
                     </div><!-- col -->
                     <div class="col-md-9 mg-t-5 mg-md-t-0">
                       <div id="slWrapper" class="parsley-select">
-                        <select class="form-control select2 w-100" data-placeholder="Choose Categories" data-parsley-class-handler="#slWrapper" data-parsley-errors-container="#slErrorContainer" name="category[]" multiple="multiple" required>
+                        <select class="form-control bg-dark text-white select2 w-100" data-placeholder="Choose Categories" data-parsley-class-handler="#slWrapper" data-parsley-errors-container="#slErrorContainer" name="category[]" multiple="multiple" required>
                           <option label="Choose one"></option>
                           <?php foreach ($categories as $category) :?>
 
@@ -43,19 +43,19 @@ defined('BASEPATH') OR exit('No Direct Script Access Allowed');?>
 
                   <div class="row row-xs align-items-center mg-b-20">
                     <div class="col-md-3">
-                      <label class="form-label mg-b-0">Ebook Title *</label>
+                      <label class="form-label text-white mg-b-0">Ebook Title *</label>
                     </div><!-- col -->
                     <div class="col-md-9 mg-t-5 mg-md-t-0">
-                      <input type="text" name="ebook_title" class="form-control" placeholder="Ebook Title" required>
+                      <input type="text" name="ebook_title" class="form-control bg-dark text-white" placeholder="Ebook Title" required>
                     </div><!-- col -->
                   </div><!-- row -->
 
                   <div class="row row-xs align-items-center mg-b-20">
                     <div class="col-md-3">
-                      <label class="form-label mg-b-0">Ebook Description *</label>
+                      <label class="form-label text-white mg-b-0">Ebook Description *</label>
                     </div><!-- col -->
                     <div class="col-md-9 mg-t-5 mg-md-t-0">
-                      <textarea rows="3" name="ebook_description" class="form-control" placeholder="Ebook Description (max. 255 Characters)" maxlength="255" required></textarea>
+                      <textarea rows="3" name="ebook_description" class="form-control bg-dark text-white" placeholder="Ebook Description (max. 255 Characters)" maxlength="255" required></textarea>
                     </div><!-- col -->
                   </div><!-- row -->
 

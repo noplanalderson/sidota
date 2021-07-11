@@ -1,17 +1,17 @@
 <?php
 defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
 
-    <div class="az-content">
+    <div class="az-content az-content-dashboard">
       <div class="container">
         <div class="az-content-body">
-          <div class="card card-table-two">
+          <div class="card card-table-two rounded mb-5">
             <div class="card-header">
               <h6 class="card-title mt-3">EMPLOYEE LISTS</h6>
             </div>
             <div class="row row-sm mt-2 pd-20">
               <?php foreach ($employees as $pic) :?>
 
-              <div class="col-md-3 col-sm-4 col-xs-6 mt-5 pd-10 pd-sm-20 bg-gray-200 table-bordered">
+              <div class="col-md-3 col-sm-4 col-xs-6 mt-5 pd-10 pd-sm-20 bg-dark-200 text-white table-bordered">
                 <div class="thumbnail w-100">
                   <div class="image view view-first w-100">
                     <a href="<?= base_url('profile/'.encrypt($pic->employee_id));?>" target="_blank">

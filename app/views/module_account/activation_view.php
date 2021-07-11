@@ -1,13 +1,7 @@
   <body class="az-body bg-login">
-    <div class="row">
-      <div class="col-md-3 mg-t-10 msg_login">
-        <div id="msg_active" class="alert d-none">
-            <p class="msg_active"></p>
-        </div>
-      </div>
-    </div>
+
     <div class="az-signin-wrapper">
-      <div class="az-card-signin ht-xs-600">
+      <div class="az-card-signin ht-xs-600 m-3">
 
         <!-- az-signin-header -->
         <div class="az-signin-header">

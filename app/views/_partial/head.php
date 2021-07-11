@@ -37,5 +37,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 				background-repeat: no-repeat;
 			  background-size: cover;
 			}
+
+			.swal2-popup {
+			    display: none;
+			    position: relative;
+			    flex-direction: column;
+			    justify-content: center;
+			    width: 32em;
+			    max-width: 100%;
+			    padding: 1.25em;
+			    border-radius: 0.3125em;
+			    background: #3a3a3a;
+			    font-family: inherit;
+			    font-size: 1rem;
+			    box-sizing: border-box;
+			}
+
+			.swal2-popup #swal2-content {
+			    text-align: center;
+			    color: #fff;
+			}
+
+			.swal2-popup #swal2-title {
+			    text-align: center;
+			    color: #fff;
+			}
 		</style>
 </head>

@@ -4,9 +4,9 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
     <div class="az-content az-content-dashboard">
       <div class="container">
         <div class="az-content-body">
-          <div class="card card-table-two">
+          <div class="card card-table-two rounded mb-5">
             <div class="card-header">
-              <h6 class="card-title">DAILY REPORT</h6>
+              <h6 class="card-title mt-2">DAILY REPORT</h6>
             </div>
             <div class="row mt-2 pd-30">
               <div class="col-md-3 pd-2">
@@ -17,11 +17,11 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
                       <i class="fas fa-calendar tx-24 lh--9 op-6"></i>
                     </div>
                   </div>
-                  <input type="text" name="date" id="date" class="form-control fc-datepicker" data-parsley-errors-container="#slError" placeholder="YYYY-MM-DD" value="<?= empty($date) ? '' : date('Y-m-d', $date); ?>" required>
+                  <input type="text" name="date" id="date" class="form-control bg-dark text-white fc-datepicker" data-parsley-errors-container="#slError" placeholder="YYYY-MM-DD" value="<?= empty($date) ? '' : date('Y-m-d', $date); ?>" required>
                 </div>
               </div>
               <div class="col-md-3 pd-2">
-                  <select name="jobdesc_id" id="jobdesc_id" class="form-control" required>
+                  <select name="jobdesc_id" id="jobdesc_id" class="form-control bg-dark text-white" required>
                     <option value="">Choose Jobdesc</option>
                     <?php foreach ($jobdescs as $jobdesc) :?>
                     <option value="<?= $jobdesc->jobdesc_id; ?>" <?php if(encrypt($jobdesc->jobdesc_id) == $jobdesc_selected) :?>selected=""<?php endif; ?>><?= $jobdesc->jobdesc_name; ?></option>
@@ -29,7 +29,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
                   </select>
               </div>
               <div class="col-md-2 pd-2">
-                  <select name="shift" id="shift" class="form-control" required>
+                  <select name="shift" id="shift" class="form-control bg-dark text-white" required>
                     <option value="">Choose Shift</option>
                     <option value="pagi" <?php if($shift == 'pagi') :?>selected=""<?php endif; ?>>Pagi</option>
                     <option value="siang" <?php if($shift == 'siang') :?>selected=""<?php endif; ?>>Siang</option>

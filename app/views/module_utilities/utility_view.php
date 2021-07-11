@@ -6,7 +6,7 @@
 
           <div class="row row-sm mg-b-20">
             <div class="col-lg-6 mg-t-20 mg-lg-t-0">
-              <div class="card card-table-two">
+              <div class="card card-table-two rounded">
                 <div class="card-header">
                   <h6 class="card-title">JOBDESC</h6>
                 </div>
@@ -39,7 +39,7 @@
               </div><!-- card -->
             </div>
             <div class="col-lg-6 mg-t-20 mg-lg-t-0">
-              <div class="card card-table-two">
+              <div class="card card-table-two rounded">
                 <div class="card-header">
                   <h6 class="card-title">ACTIVITY CATEGORIES</h6>
                 </div>
@@ -72,7 +72,7 @@
           </div><!-- row -->
           <div class="row row-sm mg-b-20">
             <div class="col-lg-6 mg-t-20 mg-lg-t-0">
-              <div class="card card-table-two">
+              <div class="card card-table-two rounded">
                 <div class="card-header">
                   <h6 class="card-title">EBOOK CATEGORIES</h6>
                 </div>             
@@ -109,7 +109,7 @@
 
     <div class="modal fade" id="jobdescModal" tabindex="-1" role="dialog" aria-labelledby="Jobdesc Modal" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+        <div class="modal-content bg-dark text-white">
           <div class="modal-header">
               <h5 class="modal-title" id="utilAction"></h5>
               <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -125,14 +125,14 @@
             <div class="form-group row">
               <label class="col-sm-12 col-md-2 col-form-label">Jobdesc Name</label>
               <div class="col-sm-12 col-md-10">
-                <input type="text" id="jobdesc_name" name="jobdesc_name" class="form-control" placeholder="Jobdesc Name" required="required">
+                <input type="text" id="jobdesc_name" name="jobdesc_name" class="form-control bg-dark text-white" placeholder="Jobdesc Name" required="required">
               </div>
             </div>
 
             <div class="form-group row">
               <label class="col-sm-12 col-md-2 col-form-label">User Type</label>
               <div class="col-sm-12 col-md-10">
-                <select id="type_id" name="type_id" class="form-control" required="required">
+                <select id="type_id" name="type_id" class="form-control bg-dark text-white" required="required">
                 <?php foreach ($user_type as $type) :?>
                   
                   <option value="<?= $type->type_id ?>"><?= $type->type_code ?></option>
@@ -153,7 +153,7 @@
 
     <div class="modal fade" id="actCategoryModal" tabindex="-1" role="dialog" aria-labelledby="Activity Category Modal" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+        <div class="modal-content bg-dark text-white">
           <div class="modal-header">
               <h5 class="modal-title" id="utilAction"></h5>
               <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -169,7 +169,7 @@
             <div class="form-group row">
               <label class="col-sm-12 col-md-2 col-form-label">Category</label>
               <div class="col-sm-12 col-md-10">
-                <input type="text" id="category_activity" name="category_activity" class="form-control" placeholder="Activity Category" required="required">
+                <input type="text" id="category_activity" name="category_activity" class="form-control bg-dark text-white" placeholder="Activity Category" required="required">
               </div>
             </div>
           </div>
@@ -184,7 +184,7 @@
 
     <div class="modal fade" id="ebookCategoryModal" tabindex="-1" role="dialog" aria-labelledby="Ebook Category" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+        <div class="modal-content bg-dark text-white">
           <div class="modal-header">
               <h5 class="modal-title" id="utilAction"></h5>
               <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -200,7 +200,7 @@
             <div class="form-group row">
               <label class="col-sm-12 col-md-2 col-form-label">Category</label>
               <div class="col-sm-12 col-md-10">
-                <input type="text" id="category" name="category" class="form-control" placeholder="Activity Category" required="required">
+                <input type="text" id="category" name="category" class="form-control bg-dark text-white" placeholder="Activity Category" required="required">
               </div>
             </div>
           </div>

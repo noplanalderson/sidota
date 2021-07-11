@@ -1,20 +1,20 @@
 <?php 
 defined('BASEPATH') OR die('No Direct Script Access Allowed'); ?>
 
-    <div class="az-content mt-3">
+    <div class="az-content az-content-dashboard">
       <div class="container">
-        <div class="az-content-body schedule-area">
-          <div class="card card-table-two">
+        <div class="az-content-body overflow-auto">
+          <div class="card card-table-two rounded">
             <div class="card-header">
               <h6 class="card-title mt-3">Employee Schedule - <?= date('F Y', $period); ?></h6>
             </div>
             <div class="row mt-2 pd-30">
-              <div class="col-md-2 col-sm-12 pd-1 text-center mt-2">
+              <div class="col-md-2 col-sm-12 pd-1 text-center text-white mt-2">
                 Choose Period
               </div>
               <div class="col-md-3 col-sm-12 pd-5">
                 <?= form_open('schedule', 'method="post" id="periodForm" accept-charset="utf-8"');?>
-                <select name="year" id="year" class="form-control" required>
+                <select name="year" id="year" class="form-control bg-dark text-white" required>
                   <option value="">Year</option>
                   <?php foreach ($years as $year) :?>
 
@@ -24,7 +24,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed'); ?>
                 </select>
               </div>
               <div class="col-md-3 col-sm-12 pd-5">
-                <select name="month" id="month" class="form-control" required>
+                <select name="month" id="month" class="form-control bg-dark text-white" required>
                   <option value="">Month</option>
                   <?php for ($i = 1; $i <= 12; $i++) :?>
 
@@ -52,7 +52,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed'); ?>
                       <?php endfor;?>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody class="bg-gray-300">
                     <?php foreach ($employees as $emp) :?>
                     <tr>
                       <td><?= $emp->employee_name;?></td>

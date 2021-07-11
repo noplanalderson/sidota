@@ -7,7 +7,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
           <div class="row mg-b-20">
             <div class="col-md-12 col-sm-12 col-xs-12 mg-t-20 mg-lg-t-0">
             
-              <div class="card card-table-two">
+              <div class="card card-table-two rounded">
                 <div class="row">
                   <div class="col-md-12">
                     <button title="Print" id="btn-print" class="btn btn-info mr-3 mt-2 rounded float-right"><i class="fa fa-print"></i> Print</button>

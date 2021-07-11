@@ -4,7 +4,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
     <div class="az-content az-content-dashboard">
       <div class="container">
         <div class="az-content-body">
-          <div class="card card-table-two">
+          <div class="card card-table-two rounded mb-5">
             <div class="card-header">
                 <h6 class="card-title mt-3">ACCESS LISTS</h6>
                 <?= button($btn_add, TRUE, 'button', 'href="#" class="btn-sm add-access btn-primary float-right" data-toggle="modal" data-target="#accessModal"');?>
@@ -26,7 +26,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
                     <td><?= $type->type_code;?></td>
                     <td><?= $this->access_m->getAccessList($type->type_id);?></td>
                     <td>
-                      <select name="index_page" class="index_page" data-id="<?= encrypt($type->type_id) ?>" required>
+                      <select name="index_page" class="index_page bg-dark text-white" data-id="<?= encrypt($type->type_id) ?>" required>
                         <option value="">Index Page</option>
                         <?php foreach ($this->access_m->getIndexPage($type->type_id) as $index) :?>
                         
@@ -52,7 +52,7 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
 
       <div class="modal fade" id="accessModal" tabindex="-1" role="dialog" aria-labelledby="Access Management" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
+          <div class="modal-content bg-dark text-white">
             <div class="modal-header">
                 <h5 class="modal-title" id="accessAction"></h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
@@ -71,14 +71,14 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
               <div class="form-group row">
                 <label class="col-sm-12 col-md-2 col-form-label">Access Type</label>
                 <div class="col-sm-12 col-md-10">
-                  <input type="text" id="type_code" name="type_code" class="form-control" placeholder="Access Type" required="required">
+                  <input type="text" id="type_code" name="type_code" class="form-control bg-dark text-white" placeholder="Access Type" required="required">
                 </div>
               </div>
 
               <div class="form-group row">
                 <label class="col-sm-12 col-md-2 col-form-label">Privileges</label>
                 <div class="col-sm-12 col-md-10">
-                  <select id="menu_id" name="menu_id[]" class="form-control select2-search" required="required" multiple="multiple">
+                  <select id="menu_id" name="menu_id[]" class="form-control bg-dark text-white select2-search" required="required" multiple="multiple">
                   <?php foreach ($menus as $menu) :?>
                     
                     <option value="<?= $menu->menu_id ?>"><?= $menu->menu_label ?></option>

@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
 
-    <div class="az-content az-content-profile">
+    <div class="az-content az-content-profile mt-3 mb-5">
       <div class="container mn-ht-100p">
-        <div class="az-content-left az-content-left-profile pd-30 text-white bg-dark">
+        <div class="az-content-left az-content-left-profile pd-30 text-white bg-dark rounded">
 
           <div class="az-profile-overview">
             <div class="az-img-user">
-              <img src="<?= encodeImage('./_/images/users/'.encrypt($profile->user_id).'/thumbnail/'.$profile->employee_picture);?>" alt="">
+              <img src="<?= site_url('_/images/users/'.encrypt($profile->user_id).'/thumbnail/'.$profile->employee_picture);?>" alt="<?= $profile->employee_name;?>">
             </div><!-- az-img-user -->
             <div class="d-flex justify-content-between mg-b-20">
               <div>
@@ -64,9 +64,9 @@ defined('BASEPATH') OR die('No Direct Script Access Allowed');?>
           </div><!-- az-profile-overview -->
 
         </div><!-- az-content-left -->
-        <div class="az-content-body az-content-body-profile bg-dark text-white">
+        <div class="az-content-body az-content-body-profile bg-dark pd-20 text-white rounded">
           <nav class="nav az-nav-line">
-            <a href="" class="nav-link active" data-toggle="tab">Employee Bio</a>
+            <a href="" class="nav-link active ml-2" data-toggle="tab">Employee Bio</a>
           </nav>
 
           <div class="az-profile-body pd-30">
