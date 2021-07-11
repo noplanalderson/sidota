@@ -25,7 +25,7 @@
                 
                 if (data.result == 1) {
                     $('#msg_form').attr('class', 'alert alert-success');
-                    setTimeout(function () { window.location.href = baseURI + data.url;}, 3000);
+                    setTimeout(function () { window.location.href = baseURI + data.url;}, 2000);
                 } else {
                     $('#msg_form').attr('class', 'alert alert-danger');
                     $("#msg_form").alert().delay(3000).slideUp('slow');
@@ -55,15 +55,12 @@
             success: function(data) {
                 $('.csrf_token').val(data.token);
                 $('meta[name="X-CSRF-TOKEN"]').attr('content', data.token);
-                $('.msg_active').html(data.msg);
-                $("#msg_active").slideDown('fast');
                 
                 if (data.result == 1) {
-                    $('#msg_active').attr('class', 'alert alert-success');
+                    Swal.fire('Success!', data.msg, 'success');
                     setTimeout(function () { window.location.href = baseURI + 'login'; }, 2000);
                 } else {
-                    $('#msg_active').attr('class', 'alert alert-danger');
-                    $("#msg_active").alert().delay(3000).slideUp('slow');
+                    Swal.fire('Failed!', data.msg, 'error');
                 }
                 
             }
